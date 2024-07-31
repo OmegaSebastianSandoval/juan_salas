@@ -44,7 +44,7 @@ class Page_indexController extends Page_mainController
 		 $this->_view->inmuebles = $inmuebles;
 
 		// print_r($this->_view->inmuebles);
-
-
 	}
+
+	
 }

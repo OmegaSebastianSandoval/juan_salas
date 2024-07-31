@@ -615,7 +615,7 @@ HOME INICIO
   line-height: 1.5;
   width: fit-content;
   margin: auto;
-  transition:  all .3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 
@@ -1260,6 +1260,88 @@ CONTACTO INICIO
 
 /* *********************************
 CONTACTO FIN
+*******************************/
+
+
+
+
+/* *********************************
+INVENTARIO INICIO
+*******************************/
+
+.contenedor-inventario .form-control {
+  border-radius: 20px;
+  border: none;
+  padding: 10px 20px;
+  /* margin-bottom: 15px; */
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gris-medio);
+  background-color: #f4f4f4;
+  box-shadow: 1px 1px 3px 0px #bababa;
+
+}
+
+.contenedor-inventario .form-control:focus {
+  box-shadow: 0 0 5px 5px #c4c4c4;
+}
+
+.contenedor-inventario .form-check-label {
+  color: var(--naranjaCorte);
+  cursor: pointer;
+}
+
+.contenedor-inventario .form-check-input,
+.section-filtros .form-check-input {
+  margin: 0;
+}
+
+.contenedor-inventario .form-check-input:checked,
+.section-filtros .form-check-input:checked {
+  background-color: var(--naranjaCorte);
+  border-color: var(--naranjaCorte);
+}
+
+.contenedor-inventario .form-check-input:focus,
+.section-filtros .form-check-input:focus {
+  box-shadow: 0 0 0 0.25rem #f870044f;
+}
+
+.section-filtros .form-check-label {
+  color: #fff;
+  font-weight: 500;
+  transition: font-weight 0.15s ease-in-out;
+
+}
+
+.content-filtros-activos{
+  background-color: var(--cardHeader);
+  padding: 15px;
+}
+.content-filtros-activos h2{
+  color: #FFF;
+}
+.content-filtros-activos .btn_activos{
+  display: flex;
+  gap: 10px;
+  color: #FFF;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.content-filtros-activos .btn_activos i {
+  color: #FFF;
+
+  transition: all 300ms ease-in-out;
+  font-size: 21px;
+}
+
+.content-filtros-activos .btn_activos i:hover {
+  color: var(--gris-claro);
+  transform: scale(1.2);
+}
+
+/* *********************************
+INVENTARIO FIN
 *******************************/
 
 

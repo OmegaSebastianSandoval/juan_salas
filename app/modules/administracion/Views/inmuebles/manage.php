@@ -38,9 +38,9 @@
 				</div>
 				<div class="col-4 form-group">
 
-				<div class="tooltip1">
-                        <div class="tooltiptext">Esta referencia ya se encuentra registrada</div>
-                    </div>
+					<div class="tooltip1">
+						<div class="tooltiptext">Esta referencia ya se encuentra registrada</div>
+					</div>
 					<label for="ref" class="control-label">ref</label>
 					<label class="input-group">
 						<div class="input-group-prepend">
@@ -362,10 +362,9 @@
 		const referencia = document.getElementById("ref");
 		const tooltip = document.querySelector(".tooltip1");
 
-		referencia.addEventListener("input", () => {
-			console.log(referencia.value);
-			if (referencia.value.length > 2) {
-				fetch(`/administracion/inmuebles/validarinmueble/?ref=${referencia.value}`)
+		const validarReferencia = (ref) => {
+			if (ref.value.length > 2) {
+				fetch(`/administracion/inmuebles/validarinmueble/?ref=${ref.value.trim()}`)
 					.then((response) => response.json())
 					.then((data) => {
 						if (data.status === "error") {
@@ -379,7 +378,9 @@
 						}
 					});
 			}
-		});
+		}
+		//referencia.addEventListener("input", () => validarReferencia(referencia));
+
 
 		function disableAllInputs() {
 			const inputs = document.querySelectorAll(

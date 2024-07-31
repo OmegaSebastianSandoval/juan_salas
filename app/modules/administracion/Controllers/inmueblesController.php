@@ -162,9 +162,10 @@ class Administracion_inmueblesController extends Administracion_mainController
 		$csrf = $this->_getSanitizedParam("csrf");
 		if (Session::getInstance()->get('csrf')[$this->_getSanitizedParam("csrf_section")] == $csrf) {
 			$data = $this->getData();
-			$refExist = $this->mainModel->getList("ref = " . $data["ref"] . " ")[0];
+		
+			$refExist = $this->mainModel->getList("ref = '" . $data["ref"] . "' ")[0];
 			if ($refExist) {
-				header('Location: ' . $this->route . '?error=1' . '');
+				header('Location: ' . $this->route . '?error=1&ref='.$data["ref"] . '');
 				return;
 			}
 			$id = $this->mainModel->insert($data);
@@ -234,7 +235,7 @@ class Administracion_inmueblesController extends Administracion_mainController
 	 *
 	 * @return array con toda la informacion recibida del formulario.
 	 */
-	private function getData()
+	public function getData()
 	{
 		$data = array();
 		if ($this->_getSanitizedParam("tipo") == '') {
@@ -335,7 +336,7 @@ class Administracion_inmueblesController extends Administracion_mainController
 	 *
 	 * @return array cadena con los valores del campo tipo.
 	 */
-	private function getTipo()
+	public function getTipo()
 	{
 		$modelData = new Administracion_Model_DbTable_Dependtipos();
 		$data = $modelData->getList();
@@ -352,7 +353,7 @@ class Administracion_inmueblesController extends Administracion_mainController
 	 *
 	 * @return array cadena con los valores del campo departamento.
 	 */
-	private function getDepartamento()
+	public function getDepartamento()
 	{
 		$modelData = new Administracion_Model_DbTable_Dependdepartamentos();
 		$data = $modelData->getList();
@@ -369,7 +370,7 @@ class Administracion_inmueblesController extends Administracion_mainController
 	 *
 	 * @return array cadena con los valores del campo ciudad.
 	 */
-	private function getCiudad()
+	public function getCiudad()
 	{
 		$modelData = new Administracion_Model_DbTable_Dependciudades();
 		$data = $modelData->getList();
@@ -386,7 +387,7 @@ class Administracion_inmueblesController extends Administracion_mainController
 	 *
 	 * @return array cadena con los valores del campo sector.
 	 */
-	private function getSector()
+	public function getSector()
 	{
 		$modelData = new Administracion_Model_DbTable_Dependsectores();
 		$data = $modelData->getList();
@@ -403,7 +404,7 @@ class Administracion_inmueblesController extends Administracion_mainController
 	 *
 	 * @return array cadena con los valores del campo localidad.
 	 */
-	private function getLocalidad()
+	public function getLocalidad()
 	{
 		$modelData = new Administracion_Model_DbTable_Dependlocalidades();
 		$data = $modelData->getList();
