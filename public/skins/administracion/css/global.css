@@ -1297,3 +1297,38 @@ label.input-group {
     height: 100%;
   }
 }
+
+
+.tooltip1 .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: #e95050;
+  color: #FFF;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip1.active .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  position: relative;
+}
+
+.tooltip1 .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  border-width: 8px;
+  border-style: solid;
+  border-color: #e95050 transparent transparent transparent;
+  transform: translateX(-50%);
+}

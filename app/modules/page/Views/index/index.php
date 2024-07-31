@@ -2,41 +2,7 @@
 <div class="contenido-home">
     <?php echo $this->contenido; ?>
 </div>
-<!--  [0] => stdClass Object
-        (
-            [id] => 233
-            [tipo] => 2
-            [ref] => 020Apt
-            [area] => 330
-            [NombreVendedor] => 
-            [departamento] => 6
-            [ciudad] => 5
-            [sector] => 47
-            [localidad] => 19
-            [descripcion] => Lujoso apartamento duplex  de 330Mt2 con un precio de venta de 3 mil millones de pesos,  cuenta con tres habitaciones y cuatro baÃ±os, tres de ellos completos.
-Cuenta con tres salas, una de ellas en el primer piso que puede funcionar como estudio o estar de televisiÃ³n, En el segundo piso tiene una maravillosa sala con salida exclusiva a los cerros orientales y los jardines del conjunto. Se siente como una casa campestre pero con todas las comodidades y la seguridad de un apartamento. Para ello tiene mas de 30 cÃ¡maras de seguridad, 10 vigilantes por turno y cerramiento. 
-AdemÃ¡s, cuenta con una amplia cocina y una espectacular sala-comedor, closet de linos,closet de vajillas y cuarto de servicio con su baÃ±o privado.
-Valor de la administraciÃ³n incluye pago del predial.
-            [venta] => 2147483647
-            [alquiler] => 
-            [administracion] => 6000000
-            [descripcionE] => 
-            [titulo] => Lujoso Penthouse en Rosales
-            [banos] => 4
-            [Alcobas] => 3
-            [parqueaderos] => 2
-            [direccion] => 
-            [duena] => 
-            [telefonod] => 
-            [estrato] => 6
-            [tiempoconstruido] => 
-            [ndepiso] => 3
-            [tipoinstalacion] => 
-            [vigilancia] => 24horas
-            [caracteristicasadicionales] => 
-            [ocultar] => 0
-        )
- -->
+
 <section id="33" class="id_33 contenedor-seccion">
     <div class="content-box container">
         <h2 class="titulo_seccion titulo_33 titulo_principal_seccion  ">Inmuebles recientes</h2>
@@ -49,6 +15,9 @@ Valor de la administraciÃ³n incluye pago del predial.
                         <div class="image">
 
                             <img src="/images/<?= $inmueble->imagen?>" alt="Imagen del Inmueble <?= $inmueble->titulo?>">
+                        </div>
+                        <div class="content-titulo">
+                            <h2><?= $inmueble->titulo?></h2>
                         </div>
                         <div class="content px-2">
                             <div class="descripcion">

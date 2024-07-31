@@ -37,6 +37,10 @@
 					<div class="help-block with-errors"></div>
 				</div>
 				<div class="col-4 form-group">
+
+				<div class="tooltip1">
+                        <div class="tooltiptext">Esta referencia ya se encuentra registrada</div>
+                    </div>
 					<label for="ref" class="control-label">ref</label>
 					<label class="input-group">
 						<div class="input-group-prepend">
@@ -147,7 +151,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text input-icono"><i class="fa-solid fa-dollar-sign"></i></span>
 						</div>
-						<input type="text" value="<?= $this->content->alquiler; ?>" name="alquiler2" id="alquiler2" class="form-control "  onkeyup="convertir('alquiler2','alquiler');" onchange="convertir('alquiler2','alquiler');">
+						<input type="text" value="<?= $this->content->alquiler; ?>" name="alquiler2" id="alquiler2" class="form-control " onkeyup="convertir('alquiler2','alquiler');" onchange="convertir('alquiler2','alquiler');">
 						<input type="hidden" value="<?= $this->content->alquiler; ?>" name="alquiler" id="alquiler" class="form-control ">
 
 					</label>
@@ -330,25 +334,71 @@
 	</form>
 </div>
 <script type="text/javascript">
-  function convertir(id1, id2) {
-    var x = document.getElementById(id1).value;
-    x = x.replace(",", "");
-    x = x.replace(",", "");
-    x = x.replace(",", "");
-    var y = x;
-    var parts = x.toString().split(".");
-    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    var res = parts.join(".");
-    document.getElementById(id1).value = res;
-    document.getElementById(id2).value = y;
-  }
+	function convertir(id1, id2) {
+		var x = document.getElementById(id1).value;
+		x = x.replace(",", "");
+		x = x.replace(",", "");
+		x = x.replace(",", "");
+		var y = x;
+		var parts = x.toString().split(".");
+		parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		var res = parts.join(".");
+		document.getElementById(id1).value = res;
+		document.getElementById(id2).value = y;
+	}
 
-  function formatInitialValues() {
-    convertir('venta2', 'venta');
-    convertir('alquiler2', 'alquiler');
-    convertir('administracion2', 'administracion');
+	function formatInitialValues() {
+		convertir('venta2', 'venta');
+		convertir('alquiler2', 'alquiler');
+		convertir('administracion2', 'administracion');
 
-  }
+	}
 
-  document.addEventListener("DOMContentLoaded", formatInitialValues);
+	document.addEventListener("DOMContentLoaded", formatInitialValues);
+
+	document.addEventListener("DOMContentLoaded", () => {
+		formatInitialValues
+
+		const referencia = document.getElementById("ref");
+		const tooltip = document.querySelector(".tooltip1");
+
+		referencia.addEventListener("input", () => {
+			console.log(referencia.value);
+			if (referencia.value.length > 2) {
+				fetch(`/administracion/inmuebles/validarinmueble/?ref=${referencia.value}`)
+					.then((response) => response.json())
+					.then((data) => {
+						if (data.status === "error") {
+							tooltip.classList.add("active");
+							disableAllInputs();
+						} else {
+							tooltip.classList.remove("active");
+
+							// In case you want to re-enable the inputs if the status is not "error"
+							enableAllInputs();
+						}
+					});
+			}
+		});
+
+		function disableAllInputs() {
+			const inputs = document.querySelectorAll(
+				"input, select, button[type='submit']"
+			);
+			inputs.forEach((element) => {
+				if (element.id !== "ref") {
+					element.disabled = true;
+				}
+			});
+		}
+
+		function enableAllInputs() {
+			const inputs = document.querySelectorAll(
+				"input, select, button[type='submit']"
+			);
+			inputs.forEach((element) => {
+				element.disabled = false;
+			});
+		}
+	});
 </script>
