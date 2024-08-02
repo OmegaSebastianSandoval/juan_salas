@@ -1,6 +1,6 @@
 <section class="section-filtros">
     <div class="container pt-2">
-        <form action="/page/inventario/filtrar" method="post">
+        <form action="/page/inventario/filtrar">
             <div class="row">
                 <div class="col-6 col-md-4 col-lg-3 mb-4">
                     <select class="form-select form-control" name="departamento" id="departamento">
@@ -52,6 +52,7 @@
                 <div class="col-6 col-md-4 col-lg-3 mb-4">
                     <select class="form-select form-control" name="area" id="area">
                         <option value="" selected disabled>Área (mts&sup2;)</option>
+                        <option value="all" <?php echo $this->area === "all" ? 'selected' : '' ?>></option>
                         <option value="0-50" <?php echo $this->area === "0-50" ? 'selected' : '' ?>>De 0 a 50</option>
                         <option value="50-100" <?php echo $this->area === "50-100" ? 'selected' : '' ?>>De 50 a 100</option>
                         <option value="100-150" <?php echo $this->area === "100-150" ? 'selected' : '' ?>>De 100 a 150</option>
@@ -88,7 +89,8 @@
         </form>
     </div>
 </section>
-<div class="container mt-4">
+
+<div class="container mt-4  pb-4">
     <div class="row">
         <div class="col-12 col-md-3 col-lg-2">
             <div class="content-filtros-activos">
@@ -100,31 +102,31 @@
                     <div class="filtros-activos">
                         <?php if ($this->departamento != '') { ?>
                             <div class="btn_activos">
-                                <span class="cerrar"><a href="<?php echo $_SERVER['PHP_SELF'] . "?" . $_SERVER['QUERY_STRING']; ?>&dep="><i class="fa-solid fa-circle-xmark"></i></a></span><span class="activos"><?php echo $this->departamentoInfo->nombre ?></span>
+                                <span class="cerrar"><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&departamento="><i class="fa-solid fa-circle-xmark"></i></a></span><span class="activos"><?php echo $this->departamentoInfo->nombre ?></span>
                             </div>
                         <?php } ?>
 
                         <?php if ($this->ciudad != '') { ?>
                             <div class="btn_activos">
-                                <span class="cerrar"><a href="<?php echo $_SERVER['PHP_SELF'] . "?" . $_SERVER['QUERY_STRING']; ?>&ciu="><i class="fa-solid fa-circle-xmark"></i></a></span><span class="activos"><?php echo $this->ciudadInfo->nombre ?></span>
+                                <span class="cerrar"><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&ciudad="><i class="fa-solid fa-circle-xmark"></i></a></span><span class="activos"><?php echo $this->ciudadInfo->nombre ?></span>
                             </div>
                         <?php } ?>
 
                         <?php if ($this->sector != '') { ?>
                             <div class="btn_activos">
-                                <span class="cerrar"><a href="<?php echo $_SERVER['PHP_SELF'] . "?" . $_SERVER['QUERY_STRING']; ?>&sec="><i class="fa-solid fa-circle-xmark"></i></a></span><span class="activos"><?php echo $this->sectorInfo->nombre ?></span>
+                                <span class="cerrar"><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&sector="><i class="fa-solid fa-circle-xmark"></i></a></span><span class="activos"><?php echo $this->sectorInfo->nombre ?></span>
                             </div>
                         <?php } ?>
 
                         <?php if ($this->localidad != '') { ?>
                             <div class="btn_activos">
-                                <span class="cerrar"><a href="<?php echo $_SERVER['PHP_SELF'] . "?" . $_SERVER['QUERY_STRING']; ?>&loc="><i class="fa-solid fa-circle-xmark"></i></a></span><span class="activos"><?php echo $this->localidadInfo->nombre ?></span>
+                                <span class="cerrar"><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&localidad="><i class="fa-solid fa-circle-xmark"></i></a></span><span class="activos"><?php echo $this->localidadInfo->nombre ?></span>
                             </div>
                         <?php } ?>
 
                         <?php if ($this->tipo != '') { ?>
                             <div class="btn_activos">
-                                <span class="cerrar"><a href="<?php echo $_SERVER['PHP_SELF'] . "?" . $_SERVER['QUERY_STRING']; ?>&tipo="><i class="fa-solid fa-circle-xmark"></i></a></span><span class="activos"><?php echo $this->tipoInfo->nombre ?></span>
+                                <span class="cerrar"><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&tipo="><i class="fa-solid fa-circle-xmark"></i></a></span><span class="activos"><?php echo $this->tipoInfo->nombre ?></span>
                             </div>
                         <?php } ?>
 
@@ -136,7 +138,7 @@
                             }
                             ?>
                             <div class="btn_activos">
-                                <span class="cerrar"><a href="<?php echo $_SERVER['PHP_SELF'] . "?" . $_SERVER['QUERY_STRING']; ?>&area="><i class="fa-solid fa-circle-xmark"></i></a></span><span class="activos"><?php echo $areaFiltro; ?> Mts2</span>
+                                <span class="cerrar"><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&area="><i class="fa-solid fa-circle-xmark"></i></a></span><span class="activos"><?php echo $areaFiltro; ?> Mts2</span>
                             </div>
                         <?php } ?>
 
@@ -144,7 +146,194 @@
                 </div>
 
             </div>
+
+            <div class="content-filtros-disponibles">
+                <h2>
+                    Filtros Disponibles
+                </h2>
+
+                <div class="content-filtros-activo-ind">
+                    <h3>Precio de Arriendo (Millones)</h3>
+                    <div class="lista_disponibles">
+                        <ul>
+                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PA=0-5" class="enlace <?= $this->PA == '0-5' ? 'active' : '' ?>">De 0 a 5</a></li>
+                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PA=5-10" class="enlace <?= $this->PA == '5-10' ? 'active' : '' ?>">De 5 a 10</a></li>
+                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PA=10-20" class="enlace <?= $this->PA == '10-20' ? 'active' : '' ?>">De 10 a 20</a></li>
+                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PA=20-50" class="enlace <?= $this->PA == '20-50' ? 'active' : '' ?>">De 20 a 50</a></li>
+                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PA=50-1000" class="enlace <?= $this->PA == '50-1000' ? 'active' : '' ?>">Más de 50</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-filtros-activo-ind">
+                    <h3>Precio de Venta <br>(Millones)</h3>
+                    <div class="lista_disponibles">
+                        <ul>
+                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=0-50" class="enlace <?= $this->PV == '0-50' ? 'active' : '' ?> ">De 0 a 50</a></li>
+                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=50-100" class="enlace <?= $this->PV == '50-100' ? 'active' : '' ?> ">De 50 a 100</a></li>
+                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=100-150" class="enlace <?= $this->PV == '100-150' ? 'active' : '' ?> ">De 100 a 150</a></li>
+                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=150-200" class="enlace <?= $this->PV == '150-200' ? 'active' : '' ?> ">De 150 a 200</a></li>
+                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=200-300" class="enlace <?= $this->PV == '200-300' ? 'active' : '' ?> ">De 200 a 300</a></li>
+                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=300-500" class="enlace <?= $this->PV == '300-500' ? 'active' : '' ?> ">De 300 a 500</a></li>
+                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=500-1000" class="enlace <?= $this->PV == '500-1000' ? 'active' : '' ?> ">De 500 a 1000</a></li>
+                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=1000-10000" class="enlace <?= $this->PV == '1000-10000' ? 'active' : '' ?> ">Más de 1000</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-filtros-activo-ind">
+                    <h3>Habitaciones</h3>
+                    <div class="lista_disponibles">
+                        <ul>
+                            <?php for ($j = 1; $j <= 10; $j++) { ?>
+                                <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&hab=<?php echo $j; ?>" class="enlace"><?php echo $j; ?></a></li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
         </div>
+        <div class="col-12 col-md-9 col-lg-10 content-resultados">
+
+
+            <?php if ($this->register_number >= 1) { ?>
+                <h4>Se encontraron <?php echo $this->register_number ?> inmuebles que coinciden con la búsqueda</h4>
+
+
+                <div class="filtros-orden">
+
+                    <span>Ordenar por:</span>
+
+                    <select name="orden" id="orden" class="form-select form-control">
+                        <option value="1" <?= $this->orden == 1 ? ' selected' : '' ?>>Número de habitaciones</option>
+                        <option value="2" <?= $this->orden == 2 ? ' selected' : '' ?>>Precio de Arriendo</option>
+                        <option value="3" <?= $this->orden == 3 ? ' selected' : '' ?>>Precio de Venta</option>
+                        <option value="4" <?= $this->orden == 4 ? ' selected' : '' ?>>Área</option>
+                    </select>
+
+                    <select name="orden2" id="orden2" size="1" class="form-select form-control">
+                        <option value="1" <?= $this->orden2 == 1 ? ' selected' : '' ?>>Menor/Mayor</option>
+                        <option value="2" <?= $this->orden2 == 2 ? ' selected' : '' ?>>Mayor/Menor</option>
+                    </select>
+                    <button name="ordenar" type="button" class="btn-home" id="ordenar">
+                        Ordenar
+                    </button>
+                </div>
+
+                <div class="resultados-inmuebles">
+                    <?php foreach ($this->inmueblesList as $inmueble) { ?>
+                        <div class="inmueble shadow-sm rounded">
+                            <div class="row">
+                                <div class="col-12 col-md-5 d-grid align-items-center">
+                                    <img src="/images/<?= $inmueble->imagen ?>" alt="Imagen de  <?= $inmueble->titulo ?>" class="img-inmueble">
+                                </div>
+                                <div class="col-12 col-md-7">
+                                    <h5><?= $inmueble->titulo ?></h5>
+                                    <hr>
+
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 contenedor-span">
+                                            <span class="inmueble-titulo">Tipo de inmueble:</span>
+                                            <span class="inmueble-subtitulo"><?= $inmueble->tipo1 ?></span>
+
+                                        </div>
+                                        <div class="col-12 col-md-6 contenedor-span">
+                                            <span class="inmueble-titulo">Habitaciones:</span>
+                                            <span class="inmueble-subtitulo"><?= number_format($inmueble->Alcobas) ?></span>
+
+                                        </div>
+                                        <div class="col-12 col-md-6 contenedor-span">
+                                            <span class="inmueble-titulo">Área:</span>
+                                            <span class="inmueble-subtitulo"><?= $inmueble->area ?> mt<sup>2</sup></span>
+
+                                        </div>
+                                        <div class="col-12 col-md-6 contenedor-span">
+                                            <span class="inmueble-titulo">Ciudad:
+                                            </span>
+                                            <span class="inmueble-subtitulo"><?= $inmueble->ciudad1 ?></span>
+
+                                        </div>
+                                        <div class="col-12 col-md-6 contenedor-span">
+                                            <span class="inmueble-titulo">Baños: </span>
+                                            <span class="inmueble-subtitulo"><?= $inmueble->banos ?></span>
+
+                                        </div>
+                                        <div class="col-12 col-md-6 contenedor-span">
+                                            <span class="inmueble-titulo">Administración: </span>
+                                            <span class="inmueble-subtitulo">$<?= $inmueble->administracion >= 1 ? number_format($inmueble->administracion) : 0 ?></span>
+
+                                        </div>
+                                        <div class="col-12 col-md-6 contenedor-span">
+                                            <span class="inmueble-titulo">Alquiler:
+                                            </span>
+                                            <span class="inmueble-subtitulo">$<?= $inmueble->alquiler >= 1 ? number_format($inmueble->alquiler) : 0 ?></span>
+
+                                        </div>
+                                        <div class="col-12 col-md-6 contenedor-span">
+                                            <span class="inmueble-titulo">Venta:
+                                            </span>
+                                            <span class="inmueble-subtitulo">$<?= $inmueble->venta >= 1 ? number_format($inmueble->venta) : 0 ?></span>
+
+                                        </div>
+                                        <div class="col-12 col-md-6 contenedor-span">
+                                            <span class="inmueble-titulo">Departamento:
+                                            </span>
+                                            <span class="inmueble-subtitulo"><?= $inmueble->departamento1 ?></span>
+
+                                        </div>
+                                        <div class="col-12 col-md-6 contenedor-span">
+                                            <span class="inmueble-titulo">Sector:
+                                            </span>
+                                            <span class="inmueble-subtitulo"><?= $inmueble->sector1 ?></span>
+
+                                        </div>
+                                        <a href="/page/inventario/inmueble?id=<?= $inmueble->id ?>" class="learn-more">
+                                            <span class="circle" aria-hidden="true">
+                                                <span class="icon arrow"></span>
+                                            </span>
+                                            <span class="button-text">Ver más</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    <?php } ?>
+
+                    <div class=" pagination mt-3 mb-5 justify-content-center">
+                        <?php
+                        $url = $_SERVER['REQUEST_URI'];
+                        $min = $this->page - 10;
+                        if ($min < 0) {
+                            $min = 1;
+                        }
+                        $max = $this->page + 10;
+                        if ($this->totalpages > 1) {
+                            if ($this->page != 1)
+                                echo '<li class="page-item"><a class="page-link text-pagination" href="' . $url . '&page=' . ($this->page - 1) . '"> &laquo; Anterior </a></li>';
+                            for ($i = 1; $i <= $this->totalpages; $i++) {
+                                if ($this->page == $i) {
+                                    echo '<li class="page-item  fondo-pagination active"><a class="page-link  text-pagination">' . $this->page . '</a></li>';
+                                } else {
+                                    if ($i <= $max and $i >= $min) {
+                                        echo '<li class="page-item fondo-pagination"><a class="page-link text-pagination" href="' . $url . '&page=' . $i . '">' . $i . '</a></li>  ';
+                                    }
+                                }
+                            }
+                            if ($this->page != $this->totalpages)
+                                echo '<li class="page-item"><a class="page-link text-pagination" href="' . $url . '&page=' . ($this->page + 1) . '">Siguiente &raquo;</a></li>';
+                        }
+                        ?>
+                    </div>
+                </div>
+            <?php } else { ?>
+                <h4>Sin resultados para la búsqueda</h4>
+            <?php } ?>
+        </div>
+
+
     </div>
 </div>
 
@@ -155,6 +344,15 @@
     }
 </style>
 
+<script type="text/javascript">
+    document.getElementById('ordenar').addEventListener('click', function() {
+        const orden = document.getElementById('orden').value;
+        const orden2 = document.getElementById('orden2').value;
+        const baseUrl = '<?php echo $_SERVER['REQUEST_URI']; ?>';
+
+        window.location = `${baseUrl}&orden=${orden}&orden2=${orden2}`;
+    });
+</script>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -233,5 +431,7 @@
             sectorSelect.value = "";
             localidadSelect.value = "";
         });
+
+
     });
 </script>

@@ -67,6 +67,7 @@ class Core_Model_Sendingemail
 		$informacion = $infopageModel->getById(1);
 
     // $this->email->getMail()->addAddress($data, "");
+    // $informacion->info_pagina_correo_oculto
     $this->email->getMail()->addAddress("desarrollo8@omegawebsystems.com");
     $this->email->getMail()->addBCC("juansesdvsf@gmail.com");
     $content = $this->_view->getRoutPHP('/../app/modules/core/Views/templatesemail/mailFormulario.php');

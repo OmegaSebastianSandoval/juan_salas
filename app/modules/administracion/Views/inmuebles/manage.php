@@ -56,7 +56,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text input-icono  fondo-verde-claro "><i class="fas fa-pencil-alt"></i></span>
 						</div>
-						<input type="number" value="<?= $this->content->area; ?>" name="area" id="area" class="form-control" required>
+						<input type="number" step="any"  value="<?= $this->content->area; ?>" name="area" id="area" class="form-control" required>
 					</label>
 					<div class="help-block with-errors"></div>
 				</div>

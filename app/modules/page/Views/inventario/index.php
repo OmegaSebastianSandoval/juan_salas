@@ -77,14 +77,14 @@ echo $this->banner;
             Compra
           </label>
         </div>
-        <input class="form-check-input" type="checkbox" value="1" name="compra" id="compra">
+        <input class="form-check-input" type="checkbox" value="1" name="compra" id="compra" checked>
 
         <div class="form-check">
           <label class="form-check-label" for="arriendo">
             Arriendo
           </label>
         </div>
-        <input class="form-check-input" type="checkbox" value="1" name="arriendo" id="arriendo">
+        <input class="form-check-input" type="checkbox" value="1" name="arriendo" id="arriendo" checked>
       </div>
       <div class="col-6 col-md-4 col-lg-3 mb-4 d-flex align-items-center  ">
         <button class=" m-0 btn-home" type="submit">BUSCAR</button>
