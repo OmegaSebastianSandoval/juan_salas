@@ -259,9 +259,5 @@
         line-height: 36px;
     }
 
-    .cont {
-        display: grid;
 
-
-    }
 </style>
