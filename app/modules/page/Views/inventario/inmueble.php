@@ -138,7 +138,7 @@
                             </div>
                         </div>
                         <div class="col-6">
-                        <div class="d-flex gap-4 align-items-center posit">
+                            <div class="d-flex gap-4 align-items-center posit">
                                 <div>
                                     <i class="fa-solid fa-asterisk"></i>
                                 </div>
@@ -156,7 +156,22 @@
                             </div>
                         </div>
                         <div class="col-6">
+                            <div class="d-flex gap-4 align-items-center posit">
+                                <div>
+                                    <i class="fa-solid fa-asterisk"></i>
+                                </div>
+                                <div>
+                                    <span class="d-block">
+                                        Código
+                                    </span>
+                                    <span class="d-block">
 
+                                        <?php echo $this->inmueble->ref ?>
+
+                                    </span>
+
+                                </div>
+                            </div>
                         </div>
                         <div class="col-6">
 
@@ -273,6 +288,4 @@
         border-bottom: 1px solid rgb(209, 209, 209);
         line-height: 36px;
     }
-
-
 </style>
