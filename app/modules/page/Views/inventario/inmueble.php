@@ -88,8 +88,100 @@
             <?php if ($this->inmueble->descripcion) { ?>
                 <div class="contenedor-descripcion">
                     <h3>Descripción general</h3>
+                    <div class="descripcion">
+                        <?php echo $this->inmueble->descripcion ?>
+                    </div>
                 </div>
             <?php } ?>
+
+            <div class="contenedor-descripcion">
+                <h3>Detalles del inmueble</h3>
+                <div class="descripcion">
+                    <h4 class="title-section">Acerca del inmueble</h4>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="d-flex gap-4 align-items-center posit">
+                                <div>
+                                    <i class="fa-solid fa-building"></i>
+                                </div>
+                                <div>
+                                    <span class="d-block">
+                                        Tipo de inmueble
+                                    </span>
+                                    <span class="d-block">
+
+                                        <?php echo $this->inmueble->tipo1 ?>
+
+                                    </span>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex gap-4 align-items-center posit">
+                                <div>
+                                    <i class="fa-solid fa-asterisk"></i>
+                                </div>
+                                <div>
+                                    <span class="d-block">
+                                        Código
+                                    </span>
+                                    <span class="d-block">
+
+                                        <?php echo $this->inmueble->ref ?>
+
+                                    </span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex gap-4 align-items-center posit">
+                                <div>
+                                    <i class="fa-solid fa-asterisk"></i>
+                                </div>
+                                <div>
+                                    <span class="d-block">
+                                        Código
+                                    </span>
+                                    <span class="d-block">
+
+                                        <?php echo $this->inmueble->ref ?>
+
+                                    </span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex gap-4 align-items-center posit">
+                                <div>
+                                    <i class="fa-solid fa-asterisk"></i>
+                                </div>
+                                <div>
+                                    <span class="d-block">
+                                        Código
+                                    </span>
+                                    <span class="d-block">
+
+                                        <?php echo $this->inmueble->ref ?>
+
+                                    </span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+
+                        </div>
+                        <div class="col-6">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
         <div class="col-12 col-md-6"></div>
@@ -167,12 +259,33 @@
     }
 
     .contenedor-descripcion {
-        padding: 20px 0;
-        background-color: var(--cardHeader);
+        margin-bottom: 20px;
     }
 
     .contenedor-descripcion h3 {
         color: #FFF;
+        font-size: 19px;
+        margin: 0;
+        padding: 15px 10px;
+        background-color: var(--cardHeader);
+    }
 
+    .contenedor-descripcion .descripcion {
+        margin-top: 10px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 150%;
+        text-align: justify;
+    }
+
+    .title-section {
+        margin-bottom: 38px;
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        border-bottom: 1px solid rgb(209, 209, 209);
+        line-height: 36px;
     }
 </style>
