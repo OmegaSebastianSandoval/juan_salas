@@ -144,11 +144,11 @@
                                 </div>
                                 <div>
                                     <span class="d-block">
-                                        Código
+                                        Administración
                                     </span>
                                     <span class="d-block">
 
-                                        <?php echo $this->inmueble->ref ?>
+                                        <?php echo $this->inmueble->administracion ?>
 
                                     </span>
 
@@ -162,11 +162,11 @@
                                 </div>
                                 <div>
                                     <span class="d-block">
-                                        Código
+                                        Estrato
                                     </span>
                                     <span class="d-block">
 
-                                        <?php echo $this->inmueble->ref ?>
+                                        <?php echo $this->inmueble->estrato ?>
 
                                     </span>
 
@@ -174,10 +174,58 @@
                             </div>
                         </div>
                         <div class="col-6">
+                            <div class="d-flex gap-4 align-items-center posit">
+                                <div>
+                                    <i class="fa-solid fa-asterisk"></i>
+                                </div>
+                                <div>
+                                    <span class="d-block">
+                                        Tiempo de construido
+                                    </span>
+                                    <span class="d-block">
 
+                                        <?php echo $this->inmueble->tiempoconstruido ?>
+
+                                    </span>
+
+                                </div>
+                            </div>
                         </div>
                         <div class="col-6">
+                            <div class="d-flex gap-4 align-items-center posit">
+                                <div>
+                                    <i class="fa-solid fa-asterisk"></i>
+                                </div>
+                                <div>
+                                    <span class="d-block">
+                                        Sector
+                                    </span>
+                                    <span class="d-block">
 
+                                        <?php echo $this->inmueble->sector1 ?>
+
+                                    </span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex gap-4 align-items-center posit">
+                                <div>
+                                    <i class="fa-solid fa-asterisk"></i>
+                                </div>
+                                <div>
+                                    <span class="d-block">
+                                        Localidad
+                                    </span>
+                                    <span class="d-block">
+
+                                        <?php echo $this->inmueble->localidad1 ?>
+
+                                    </span>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -287,5 +335,6 @@
         font-size: 14px;
         border-bottom: 1px solid rgb(209, 209, 209);
         line-height: 36px;
+
     }
 </style>
