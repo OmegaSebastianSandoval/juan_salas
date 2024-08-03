@@ -7,13 +7,13 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-8">
+            <div class="col-md-4 col-8  d-none d-lg-flex align-items-center ">
                 <a href="/">
 
                     <img src="/skins/page/images/Corte/logo_top.jpg" class="logo">
                 </a>
             </div>
-            <div class="col-sm-8 d-none d-md-flex align-items-center flex-nowrap justify-content-end">
+            <div class="col-sm-8 d-none d-lg-flex align-items-center flex-nowrap justify-content-end">
                 <div class="me-3">
                     <img src="/skins/page/images/Corte/Celular.png" class="iconoHeader">
                     <span class="tel-header me-1 font-14px"><?php echo obtenerPrimerNumero($this->infopage->info_pagina_telefono) ?></span>
@@ -31,17 +31,17 @@
     <div class="fondo-gris">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-md-3 d-none d-sm-none d-md-block">
+                <div class="col-lg-12 col-md-12 d-none d-lg-block">
                     <nav>
                         <ul id="menu">
-                            <li class="<?php echo $this->botonactivo == 1 ? 'active' : '' ?>" ><a href="/"><span>HOME</span></a></li>
-                            <li class="<?php echo $this->botonactivo == 2 ? 'active' : '' ?>" ><a href="/page/inventario"><span>INVENTARIO DE INMUEBLES</span></a></li>
-                            <li class="<?php echo $this->botonactivo == 3 ? 'active' : '' ?>" ><a href="/page/conozcanos"><span>CONÓZCANOS</span></a></li>
-                            <li class="<?php echo $this->botonactivo == 4 ? 'active' : '' ?>" ><a href="/page/servicios"><span>SERVICIOS</span></a></li>
-                            <li class="<?php echo $this->botonactivo == 5 ? 'active' : '' ?>" ><a href="/page/procesos"><span>PROCESOS</span></a></li>
+                            <li class="<?php echo $this->botonactivo == 1 ? 'active' : '' ?>"><a href="/"><span>HOME</span></a></li>
+                            <li class="<?php echo $this->botonactivo == 2 ? 'active' : '' ?>"><a href="/page/inventario"><span>INVENTARIO DE INMUEBLES</span></a></li>
+                            <li class="<?php echo $this->botonactivo == 3 ? 'active' : '' ?>"><a href="/page/conozcanos"><span>CONÓZCANOS</span></a></li>
+                            <li class="<?php echo $this->botonactivo == 4 ? 'active' : '' ?>"><a href="/page/servicios"><span>SERVICIOS</span></a></li>
+                            <li class="<?php echo $this->botonactivo == 5 ? 'active' : '' ?>"><a href="/page/procesos"><span>PROCESOS</span></a></li>
 
                             <?php if (is_countable($this->links) && count($this->links) >= 1) { ?>
-                                <li ><a href="#"><span>PAGOS</span></a>
+                                <li><a href="#"><span>PAGOS</span></a>
                                     <ul>
                                         <?php foreach ($this->links as $link) { ?>
                                             <li><a href="<?= $link->publicidad_enlace ?>" <?= $link->publicidad_tipo_enlace === '1' ? 'target="_blank"' : '' ?>><i class="icon-menu fas fa-caret-right"></i><?= $link->publicidad_texto_enlace ?></a></li>
@@ -51,11 +51,25 @@
                                     </ul>
                                 </li>
                             <?php } ?>
-                            <li class="no-hover" >
-                                <div class="d-flex justify-content-end">
-                                    <img src="/skins/page/images/Corte/Lupa.png" class="iconoHeader me-3">
-                                    <span style="width: 1%; height: 30px; top: 70%; transform: translateY(-0%); background-color: #ccc;" class="me-2"></span>
-                                    <div class="d-flex gap-2">
+                            <li class="no-hover">
+                                <div class="d-flex align-items-center justify-content-end gap-3">
+
+                                    <div class="search">
+                                        <form action="/page/inventario/filtrar">
+
+                                            <input type="text" class="search__input" placeholder="Código" name="codigo" required>
+                                            <button class="search__button">
+                                                <svg class="search__icon" aria-hidden="true" viewBox="0 0 24 24">
+                                                    <g>
+                                                        <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+                                                    </g>
+                                                </svg>
+                                            </button>
+                                        </form>
+
+                                    </div>
+                                    <span style="width: 1px; height: 30px; top: 70%; transform: translateY(-0%); background-color: #ccc;" class="me-2"></span>
+                                    <div class="d-flex gap-2 align-items-center justify-content-end">
 
                                         <?php if ($this->infopage->info_pagina_facebook) { ?>
                                             <a href="<?php echo $this->infopage->info_pagina_facebook ?>" target="_blank" class="red">
@@ -64,7 +78,7 @@
                                         <?php } ?>
                                         <?php if ($this->infopage->info_pagina_twitter) { ?>
                                             <a href="<?php echo $this->infopage->info_pagina_twitter ?>" target="_blank" class="red">
-                                                <i class="fab fa-twitter"></i>
+                                                <i class="bi bi-twitter-x"></i>
                                             </a>
                                         <?php } ?>
                                         <?php if ($this->infopage->info_pagina_instagram) { ?>
@@ -104,10 +118,15 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="col-8 d-block d-sm-block d-md-none d-flex justify-content-center align-items-center" style="margin-top: -20%;"></div>
-                <div class="col-4 d-block d-sm-block d-md-none d-flex justify-content-center align-items-center" style="margin-top: -20%;">
+                <div class="col-8 d-lg-none d-flex justify-content-start align-items-center">
+                    <a href="/">
+
+                        <img src="/skins/page/images/Corte/logo_top.jpg" class="logo">
+                    </a>
+                </div>
+                <div class="col-4 d-block d-lg-none d-flex justify-content-end align-items-center">
                     <div class=" main">
-                        <a class="btn-menu d-block d-sm-block d-md-none fa-1x"><i class="fas fa-bars fa-2x" style="color:#005681"></i></a>
+                        <a class="btn-menu d-block d-lg-none fa-1x"><i class="fas fa-bars fa-2x" style="color:#005681"></i></a>
                     </div>
                 </div>
                 <!-- <div class="col-sm-2 align-self-center d-none d-sm-none d-md-block"> -->
@@ -174,7 +193,7 @@
 </div>
 
 <div class="botonera-resposive">
-    <div class=" col-11 col-md-8">
+    <div class=" col-12 col-md-8">
         <div class="col-md-4">
             <a class="btn-menu"><i class="fas fa-times-circle icon-naranja"></i></a>
         </div>
@@ -188,13 +207,13 @@
             </tr>
             <tr>
                 <td>
-                    <li class="item"><a href="/page/inventario"><i class="fas fa-shield-alt me-2"></i><span>INVENTARIO DE INMUEBLES</span></a>
+                    <li class="item"><a href="/page/inventario"><i class="fa-solid fa-building  me-2"></i></i><span>INVENTARIO DE INMUEBLES</span></a>
                     </li>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <li class="item"><a href="/page/conozcanos"><i class="fas fa-shield-alt me-2"></i><span>CONÓZCANOS</span></a>
+                    <li class="item"><a href="/page/conozcanos"><i class="fa-solid fa-people-roof me-2"></i></i><span>CONÓZCANOS</span></a>
                     </li>
                 </td>
             </tr>
@@ -206,7 +225,7 @@
             </tr>
             <tr>
                 <td>
-                    <li class="item"><a href="/page/procesos"><i class="fas fa-shield-alt me-2"></i><span>PROCESOS</span></a>
+                    <li class="item"><a href="/page/procesos"><i class="fa-solid fa-chalkboard-user me-2"></i></i><span>PROCESOS</span></a>
                     </li>
                 </td>
             </tr>
@@ -216,19 +235,19 @@
                     <td>
                         <li class="item">
                             <a href="/page/pagos" rel="noopener noreferrer" data-bs-toggle="collapse" data-bs-target="#sub-menu">
-                                <i class="fas fa-users me-2"></i>
+                            <i class="fa-regular fa-money-bill-1 me-2"></i>
                                 <span>PAGOS</span>
                             </a>
                             <ul class="collapse" id="sub-menu">
                                 <?php foreach ($this->links as $link) { ?>
-                                   
-                                    <li  class="item2">
+
+                                    <li class="item2">
                                         <a href="<?= $link->publicidad_enlace ?>" <?= $link->publicidad_tipo_enlace === '1' ? 'target="_blank"' : '' ?>>
                                             <i class="fas fa-question-circle"></i> <?= $link->publicidad_texto_enlace ?>
                                         </a>
                                     </li>
                                 <?php } ?>
-                               
+
                             </ul>
                         </li>
                     </td>

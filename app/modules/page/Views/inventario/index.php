@@ -1,7 +1,7 @@
 <?php
 echo $this->banner;
 ?>
-<div class="container contenedor-inventario">
+<div class="container contenedor-inventario pb-2">
 
   <?php
   echo $this->contenido;
@@ -9,7 +9,7 @@ echo $this->banner;
   <form action="/page/inventario/filtrar"> 
     <div class="row">
       <div class="col-6 col-md-4 col-lg-3 mb-4">
-        <select class="form-select form-control" name="departamento" id="departamento">
+        <select class="form-select form-control" name="departamento" id="departamento" required>
           <option value="" selected disabled>--Departamento--</option>
           <?php foreach ($this->departamentos as  $departamento) { ?>
             <option value="<?php echo $departamento->id ?>"><?php echo $departamento->nombre ?></option>
@@ -57,7 +57,7 @@ echo $this->banner;
 
       <div class="col-6 col-md-4 col-lg-3 mb-4">
         <select class="form-select form-control" name="area" id="area">
-          <option value="" selected disabled>Área (mts&sup2;)</option>
+          <option value="" selected disabled>Área (m&sup2;)</option>
           <option value="0-50">De 0 a 50</option>
           <option value="50-100">De 50 a 100</option>
           <option value="100-150">De 100 a 150</option>
@@ -71,8 +71,8 @@ echo $this->banner;
         </select>
       </div>
 
-      <div class="col-6 col-md-4 col-lg-3 mb-4 d-flex gap-2 justify-content-center align-items-center">
-        <div class="form-check">
+      <div class="col-12 col-md-4 col-lg-3 mb-4 d-flex gap-1 gap-md-2 justify-content-center align-items-center">
+        <div class="form-check ps-0">
           <label class="form-check-label" for="compra">
             Compra
           </label>
@@ -86,8 +86,8 @@ echo $this->banner;
         </div>
         <input class="form-check-input" type="checkbox" value="1" name="arriendo" id="arriendo" checked>
       </div>
-      <div class="col-6 col-md-4 col-lg-3 mb-4 d-flex align-items-center  ">
-        <button class=" m-0 btn-home" type="submit">BUSCAR</button>
+      <div class="col-12 col-md-4 col-lg-3 mb-4 d-flex align-items-center  ">
+        <button class="mx-auto m-lg-0 btn-home" type="submit">BUSCAR</button>
       </div>
     </div>
 
@@ -98,85 +98,7 @@ echo $this->banner;
 <style>
   .main-general {
     background-color: #e7e7e7;
+    min-height: auto;
   }
 </style>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const departamentoSelect = document.getElementById('departamento');
-    const ciudadSelect = document.getElementById('ciudad');
-    const sectorSelect = document.getElementById('sector');
-    const localidadSelect = document.getElementById('localidad');
-    const ciudadOptions = Array.from(ciudadSelect.options);
-    const sectorOptions = Array.from(sectorSelect.options);
-    const localidadOptions = Array.from(localidadSelect.options);
-
-    // Ocultar todas las opciones de ciudades, sectores y localidades al cargar la página
-    ciudadOptions.forEach(option => {
-      if (option.value) option.style.display = 'none';
-    });
-    sectorOptions.forEach(option => {
-      if (option.value) option.style.display = 'none';
-    });
-    localidadOptions.forEach(option => {
-      if (option.value) option.style.display = 'none';
-    });
-
-    departamentoSelect.addEventListener('change', () => {
-      const selectedDepartamento = departamentoSelect.value;
-
-      // Ocultar todas las opciones de ciudades, sectores y localidades
-      ciudadOptions.forEach(option => {
-        if (option.value) option.style.display = 'none';
-      });
-      sectorOptions.forEach(option => {
-        if (option.value) option.style.display = 'none';
-      });
-      localidadOptions.forEach(option => {
-        if (option.value) option.style.display = 'none';
-      });
-
-      // Mostrar solo las opciones de ciudades que corresponden al departamento seleccionado
-      ciudadOptions.forEach(option => {
-        if (option.dataset.departamento === selectedDepartamento) {
-          option.style.display = 'block';
-        }
-      });
-
-      // Resetear los selects de ciudades, sectores y localidades
-      ciudadSelect.value = "";
-      sectorSelect.value = "";
-      localidadSelect.value = "";
-    });
-
-    ciudadSelect.addEventListener('change', () => {
-      const selectedCiudad = ciudadSelect.value;
-
-      // Ocultar todas las opciones de sectores y localidades
-      sectorOptions.forEach(option => {
-        if (option.value) option.style.display = 'none';
-      });
-      localidadOptions.forEach(option => {
-        if (option.value) option.style.display = 'none';
-      });
-
-      // Mostrar solo las opciones de sectores que corresponden a la ciudad seleccionada
-      sectorOptions.forEach(option => {
-        if (option.dataset.ciudad === selectedCiudad && option.dataset.departamento === departamentoSelect.value) {
-          option.style.display = 'block';
-        }
-      });
-
-      // Mostrar solo las opciones de localidades que corresponden a la ciudad seleccionada
-      localidadOptions.forEach(option => {
-        if (option.dataset.ciudad === selectedCiudad && option.dataset.departamento === departamentoSelect.value) {
-          option.style.display = 'block';
-        }
-      });
-
-      // Resetear los selects de sectores y localidades
-      sectorSelect.value = "";
-      localidadSelect.value = "";
-    });
-  });
-</script>

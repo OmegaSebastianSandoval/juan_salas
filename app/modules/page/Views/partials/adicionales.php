@@ -46,7 +46,7 @@
     }
 
     .loader::before {
-        background-color: var(--naranjaCorte);
+        background-color: var(--naranja);
         transform: scale(0.5) translate(-48px, -48px);
     }
 

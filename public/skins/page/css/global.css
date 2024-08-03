@@ -7,11 +7,11 @@
 
 
 :root {
-  --naranjaCorte: #f87004;
+  --naranja: #f87004;
   --grisNav: #f7f7f7;
   --morado: #545d86;
-  --menuOpciones: #757b96;
-  --cardHeader: #495176;
+  --morado-claro: #757b96;
+  --morado-dos: #495176;
   --fondoTexto: #5c6995;
   --gris-claro: #E5E5E5;
   --gris-oscuro: #333333;
@@ -53,7 +53,7 @@ body {
 
 
 h2 {
-  color: var(--naranjaCorte);
+  color: var(--naranja);
   font-weight: 800;
   font-size: 1.5rem;
 }
@@ -93,8 +93,8 @@ header .header-content .red {
 }
 
 header .header-content .red i {
-  color: var(--naranjaCorte);
-  transition: transform 0.3s ease-in-out;
+  color: var(--naranja);
+  transition: all 0.3s ease-in-out;
   font-size: 21px;
 }
 
@@ -103,15 +103,16 @@ header .header-content .red:hover {
 }
 
 header .header-content .red:hover i {
-  transform: scale(1.2);
+ transform: scale(1.2);
 }
 
 header .header-content nav ul {
-  display: table;
+  display: flex;
   width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
+  justify-content: space-between;
 }
 
 header .header-content nav ul li {
@@ -121,6 +122,7 @@ header .header-content nav ul li {
   vertical-align: middle;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
+  padding: 0 10px;
 }
 
 header .header-content nav ul li:hover {
@@ -137,7 +139,7 @@ header .header-content nav ul li a {
   display: table;
   width: 100%;
   text-decoration: none;
-  color: var(--menuOpciones);
+  color: var(--morado-claro);
 }
 
 header .header-content nav ul li a span {
@@ -190,25 +192,25 @@ header .header-content-home2 .icono-header {
 }
 
 .lineaNaranja {
-  background-color: var(--naranjaCorte);
+  background-color: var(--naranja);
   height: 0.5rem;
 }
 
 .btn-naranja {
-  background-color: var(--naranjaCorte);
+  background-color: var(--naranja);
   color: white;
   transition: all 0.3s ease-in-out;
   font-weight: 500;
 }
 
 .btn-naranja:hover {
-  border-color: var(--naranjaCorte);
-  color: var(--naranjaCorte);
+  border-color: var(--naranja);
+  color: var(--naranja);
 }
 
 .btn-naranja.active {
-  border-color: var(--naranjaCorte);
-  color: var(--naranjaCorte);
+  border-color: var(--naranja);
+  color: var(--naranja);
   border: 2px solid;
   font-weight: 600;
 }
@@ -280,6 +282,64 @@ ul#menu ul li:hover a {
   color: #FFF !important;
 }
 
+/* From Uiverse.io by joe-watson-sbf */ 
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.search__input {
+  font-family: inherit;
+  font-size: inherit;
+  background-color: #f4f2f2;
+  border: none;
+  color: #646464;
+  padding: 0.7rem 1rem;
+  border-radius: 30px;
+  width: 12em;
+  transition: all ease-in-out .5s;
+  /* margin-right: -2rem; */
+}
+
+.search__input:hover, .search__input:focus {
+  box-shadow: 0 0 1em #00000013;
+}
+
+.search__input:focus {
+  outline: none;
+  background-color: #f0eeee;
+}
+
+.search__input::-webkit-input-placeholder {
+  font-weight: 100;
+  color: #ccc;
+}
+
+.search__input:focus + .search__button {
+  background-color: #f0eeee;
+}
+
+.search__button {
+  border: none;
+  background-color: transparent;
+  /* margin-top: .1em; */
+}
+
+.search__button:hover {
+  cursor: pointer;
+}
+
+.search__icon {
+  height: 30px;
+  width: 30px;
+  fill: var(--morado);
+  transition: all 300ms ease-in-out;
+}
+.search__icon:hover {
+transform: scale(1.1);
+}
 /* ***************
 HEADER FIN
 **************** */
@@ -335,7 +395,7 @@ HEADER FIN
 
 .carousel-control-next i,
 .carousel-control-prev i {
-  color: var(--naranjaCorte) !important;
+  color: var(--naranja) !important;
 
 }
 
@@ -499,7 +559,7 @@ HOME INICIO
 
 .contenido-home .id_26 .design-four .imagen-contenido {
 
-  background-color: var(--cardHeader);
+  background-color: var(--morado-dos);
   padding: 45px 0 23px 0;
 
   border-bottom-left-radius: 110px;
@@ -539,7 +599,7 @@ HOME INICIO
   text-transform: uppercase;
   border: 0;
   box-shadow: #db6507 0px 7px 0px 0px;
-  background-color: var(--naranjaCorte);
+  background-color: var(--naranja);
   border-radius: 25px;
   overflow: hidden;
   transition: all 300ms ease-in-out;
@@ -752,7 +812,7 @@ HOME INICIO
   font-size: 2rem;
   text-align: center;
   font-weight: 700;
-  color: var(--cardHeader);
+  color: var(--morado-dos);
 }
 
 .content-preguntas .img-preguntas {
@@ -767,7 +827,7 @@ HOME INICIO
 .preguntas li {
   line-height: 30px;
   font-size: 20px;
-  color: var(--cardHeader);
+  color: var(--morado-dos);
 }
 
 
@@ -810,7 +870,7 @@ footer {
 }
 
 .footer a:hover {
-  color: var(--naranjaCorte);
+  color: var(--naranja);
 
   font-weight: 600;
 }
@@ -890,20 +950,25 @@ footer {
   text-align: right;
   display: block;
   padding: 5px;
+  cursor: pointer;
+}
+.btn-menu i {
+  font-size: 32px;
 }
 
+
 header .botonera-responsive .item {
-  color: var(--cardHeader);
+  color: var(--morado-dos);
 }
 
 .item {
   list-style: none;
-  color: var(--cardHeader);
+  color: var(--morado-dos);
 }
 
 .item2 {
   list-style: none;
-  color: var(--cardHeader);
+  color: var(--morado-dos);
   border-top: 1px solid #dee2e6;
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
@@ -927,18 +992,18 @@ header .botonera-responsive .item {
 }
 
 .icon-naranja {
-  color: var(--naranjaCorte);
+  color: var(--naranja);
 }
 
 .item a {
-  color: var(--cardHeader);
+  color: var(--morado-dos);
   font-size: 17px;
   margin-left: 5px;
   text-decoration: none;
 }
 
 .item a i {
-  color: var(--naranjaCorte);
+  color: var(--naranja);
 }
 
 #sub-menu {
@@ -966,12 +1031,12 @@ SERVICIOS INICIO
 }
 
 .accordion-item h2 {
-  color: var(--naranjaCorte);
+  color: var(--naranja);
 
 }
 
 .accordion-button:not(.collapsed) {
-  color: var(--naranjaCorte);
+  color: var(--naranja);
   background-color: #f8700421;
   font-weight: 900;
 }
@@ -1011,7 +1076,7 @@ CONOZCANOS INICIO
   display: block;
   width: 3em;
   max-width: 70%;
-  border-bottom: 4px solid var(--naranjaCorte);
+  border-bottom: 4px solid var(--naranja);
   margin: auto;
   height: 5px;
   padding: 5px 0;
@@ -1019,7 +1084,7 @@ CONOZCANOS INICIO
 
 
 .contenedor-conzcanos h4 {
-  color: var(--naranjaCorte);
+  color: var(--naranja);
   font-weight: 800;
   font-size: 1.5rem;
 }
@@ -1082,20 +1147,20 @@ CONOZCANOS FIN
 PROCESOS INICIO
 *******************************/
 .acordion-tab .nav-link {
-  color: var(--naranjaCorte);
+  color: var(--naranja);
   width: max-content;
 
 }
 
 .acordion-tab .nav-link.active {
-  background-color: var(--naranjaCorte) !important;
+  background-color: var(--naranja) !important;
   color: #FFF;
 
 
 }
 
 .acordion-tab :focus-visible {
-  outline: var(--naranjaCorte) auto 1px;
+  outline: var(--naranja) auto 1px;
 }
 
 .acordion-tab .tab-content {
@@ -1114,7 +1179,9 @@ CONTACTENOS INICIO
 
 .contenedor-contacto {}
 
-.contenedor-contacto .form-label {
+.contenedor-contacto .form-label,
+.cont-form-inmueble .form-label
+ {
 
   color: var(--morado);
   font-weight: 600;
@@ -1123,7 +1190,8 @@ CONTACTENOS INICIO
 
 }
 
-.contenedor-contacto .form-control {
+.contenedor-contacto .form-control,
+.cont-form-inmueble .form-control {
   border-radius: 20px;
   border: 1px solid var(--morado);
   padding: 10px 20px;
@@ -1134,7 +1202,10 @@ CONTACTENOS INICIO
   background-color: #f4f4f4;
 }
 
-.contenedor-contacto .form-control:focus {
+.contenedor-contacto .form-control:focus,
+.cont-form-inmueble .form-control:focus
+
+ {
   box-shadow: 0 0 0 .25rem #545d8664;
 }
 
@@ -1189,8 +1260,8 @@ MAPA DEL SITIO INICIO
 .content-mapa a:focus,
 .content-mapa a.active {
   outline: 0;
-  color: var(--naranjaCorte);
-  border-color: var(--naranjaCorte);
+  color: var(--naranja);
+  border-color: var(--naranja);
   z-index: 1;
 }
 
@@ -1288,7 +1359,7 @@ INVENTARIO INICIO
 }
 
 .contenedor-inventario .form-check-label {
-  color: var(--naranjaCorte);
+  color: var(--naranja);
   cursor: pointer;
 }
 
@@ -1299,8 +1370,8 @@ INVENTARIO INICIO
 
 .contenedor-inventario .form-check-input:checked,
 .section-filtros .form-check-input:checked {
-  background-color: var(--naranjaCorte);
-  border-color: var(--naranjaCorte);
+  background-color: var(--naranja);
+  border-color: var(--naranja);
 }
 
 .contenedor-inventario .form-check-input:focus,
@@ -1316,7 +1387,7 @@ INVENTARIO INICIO
 }
 
 .content-filtros-activos {
-  background-color: var(--cardHeader);
+  background-color: var(--morado-dos);
   padding: 15px;
 }
 
@@ -1356,6 +1427,7 @@ INVENTARIO INICIO
 .content-filtros-disponibles h2 {
   font-size: 19px;
   color: var(--morado);
+  text-align: center;
 }
 
 .content-filtros-disponibles h3 {
@@ -1445,7 +1517,7 @@ INVENTARIO INICIO
 }
 
 .resultados-inmuebles .inmueble h5 {
-  color: var(--cardHeader);
+  color: var(--morado-dos);
   font-size: 16px;
   font-weight: 600;
   text-align: center;
@@ -1571,13 +1643,13 @@ INVENTARIO INICIO
 
 
 .resultados-inmuebles .page-link {
-  color: var(--cardHeader);
+  color: var(--morado-dos);
 }
 
 .resultados-inmuebles .active>.page-link,
 .resultados-inmuebles .page-link.active {
-  background-color: var(--cardHeader);
-  border-color: var(--cardHeader);
+  background-color: var(--morado-dos);
+  border-color: var(--morado-dos);
   color: #fff;
 
 }
@@ -1590,6 +1662,163 @@ INVENTARIO INICIO
 INVENTARIO FIN
 *******************************/
 
+
+
+/* *********************************
+INVENTARIO DETALLE INICIO
+*******************************/
+.header-title {
+  grid-area: title;
+
+  font-style: normal;
+  font-weight: bold;
+
+  color: rgb(37, 33, 41);
+  margin-bottom: 4px;
+  font-size: 36px;
+  line-height: 48px;
+  margin-bottom: 8px;
+}
+
+.header-title span {
+  display: block;
+
+  color: rgb(120, 116, 123);
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.title-location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.title-location i{
+  color: var(--morado);
+  font-size: 20px;
+}
+
+
+
+.title-location h2 {
+  font-size: 14px;
+  line-height: 24px;
+  color: rgb(67, 62, 71);
+  font-weight: normal;
+  margin: 0;
+}
+
+.title-location h2 span {
+  display: inline;
+  margin-left: 4px;
+  font-weight: 700;
+}
+.header-price{
+  margin-top: 15px;
+}
+.header-price .current-price {
+  font-size: 36px;
+  line-height: 48px;
+}
+
+.header-price .current-price {
+  display: block;
+  color: var(--naranja);
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 48px;
+  margin-bottom: 15px;
+}
+
+.header-price .current-price span {
+
+  display: block;
+  font-family: Montserrat;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(120, 116, 123);
+  font-weight: 500;
+}
+
+.contenedor-descripcion {
+  margin-bottom: 20px;
+}
+
+.contenedor-descripcion h3 {
+  color: #FFF;
+  font-size: 19px;
+  margin: 0;
+  padding: 15px 10px;
+  background-color: var(--morado-dos);
+}
+
+.contenedor-descripcion .descripcion {
+  margin-top: 10px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 150%;
+  text-align: justify;
+}
+.contenedor-descripcion .descripcion .cont-info{
+margin-bottom: 15px;
+}
+.contenedor-descripcion .descripcion .cont-info i{
+font-size: 22px;
+color: var(--naranja);
+width: 14px;
+display: block
+}
+.contenedor-descripcion .descripcion .cont-info .titulo-detalle{
+  font-weight: 600;
+  color: var(--morado-claro);
+  text-align: start;
+}
+.contenedor-descripcion .descripcion .cont-info .sub-detalle{
+  
+  color: var(--gris-medio);
+  text-align: start;
+}
+
+
+.title-section {
+  margin-bottom: 38px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  border-bottom: 1px solid rgb(209, 209, 209);
+  line-height: 36px;
+
+}
+
+.contenedorfotos img {
+  max-width: 100%;
+  height: auto;
+}
+
+#myCarousel {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+#myCarousel .f-carousel__slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.f-carousel__nav {
+  position: static;
+}
+.fancybox__nav {
+  /* position: absolute !important; */
+  position: static;
+}
+/* *********************************
+INVENTARIO DETALLE FIN
+*******************************/
 
 
 
@@ -1652,7 +1881,7 @@ CONTENEDOR DE DOCUMENTOS
 }
 
 .docs-container .items-docs-row::-webkit-scrollbar-thumb {
-  background: var(--naranjaCorte);
+  background: var(--naranja);
   border-radius: 50px;
 }
 
@@ -1763,7 +1992,7 @@ CONTENEDOR DE DOCUMENTOS
 }
 
 .docs-container .fa-file-pdf {
-  color: var(--naranjaCorte);
+  color: var(--naranja);
   transition: all 0.3s ease;
 }
 

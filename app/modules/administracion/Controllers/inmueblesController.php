@@ -83,7 +83,7 @@ class Administracion_inmueblesController extends Administracion_mainController
 		$filters = (object)Session::getInstance()->get($this->namefilter);
 		$this->_view->filters = $filters;
 		$filters = $this->getFilter();
-		$order = "";
+		$order = "id DESC";
 		$list = $this->mainModel->getList($filters, $order);
 		$amount = $this->pages;
 		$page = $this->_getSanitizedParam("page");
