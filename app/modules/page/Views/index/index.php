@@ -12,16 +12,25 @@
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="design-five five-34">
 
-                        <div class="image">
+                        <?php if ($inmueble->imagen && file_exists($_SERVER['DOCUMENT_ROOT'] . "/images/" . $inmueble->imagen)) { ?>
 
-                            <img src="/images/<?= $inmueble->imagen?>" alt="Imagen del Inmueble <?= $inmueble->titulo?>">
-                        </div>
+                            <div class="image">
+
+                                <img src="/images/<?= $inmueble->imagen ?>" alt="Imagen del Inmueble <?= $inmueble->titulo ?>">
+                            </div>
+                        <?php } else { ?>
+                            <div class="image">
+                                <img src="/skins/page/images/Corte/imagenot.jpg" alt="Imagen de  <?= $inmueble->titulo?>" class="img-inmueble">
+                            </div>
+
+                        <?php } ?>
+                      
                         <div class="content-titulo">
-                            <h2><?= $inmueble->titulo?></h2>
+                            <h2><?= $inmueble->titulo ?></h2>
                         </div>
                         <div class="content px-2">
                             <div class="descripcion">
-                                <p><?= $inmueble->descripcion?></p>
+                                <p><?= $inmueble->descripcion ?></p>
                             </div>
                         </div>
 

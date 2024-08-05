@@ -15,6 +15,11 @@
   <?php if ($contenido->contenido_titulo_ver == 1) { ?>
     <h2><?php echo $contenido->contenido_titulo; ?></h2>
   <?php } ?>
+  <?php if ($contenido->contenido_introduccion) { ?>
+      <div class="introduccion">
+        <?php echo $contenido->contenido_introduccion; ?>
+      </div>
+    <?php } ?>
   <?php if ($contenido->contenido_imagen) { ?>
     <div class="imagen-contenido">
       <img src="/images/<?php echo $contenido->contenido_imagen; ?>">
@@ -24,11 +29,7 @@
     <?php } ?>
   <?php } ?>
   <div>
-    <?php if ($contenido->contenido_introduccion) { ?>
-      <div class="introduccion">
-        <?php echo $contenido->contenido_introduccion; ?>
-      </div>
-    <?php } ?>
+   
 
     <?php if ($contenido->contenido_descripcion) { ?>
 

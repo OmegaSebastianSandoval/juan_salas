@@ -12,14 +12,17 @@
 
 				<img src="/images/<?php echo $contenido->contenido_imagen; ?>">
 			</div>
+			<?php if ($contenido->contenido_titulo_ver == 1 && $contenido->contenido_seccion =='3' ) { ?>
+		<h2><?php echo $contenido->contenido_titulo; ?></h2>
+	<?php } ?>
 		</div>
 	<?php } ?>
-	<?php if ($contenido->contenido_titulo_ver == 1) { ?>
+	<?php if ($contenido->contenido_titulo_ver == 1 && $contenido->contenido_seccion !='3') { ?>
 		<h2><?php echo $contenido->contenido_titulo; ?></h2>
 	<?php } ?>
 
-	<div>
-		<div class="descripcion" style="<?php if ($contenido->contenido_borde == '1') {
+	<div class="content-descripcion">
+ 		<div class="descripcion" style="<?php if ($contenido->contenido_borde == '1') {
 											echo 'padding: 10px; ';
 										} ?>">
 			<?php echo $contenido->contenido_descripcion; ?>

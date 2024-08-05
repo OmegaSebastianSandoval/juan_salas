@@ -30,8 +30,14 @@ class Page_inventarioController extends Page_mainController
 	public function indexAction()
 	{
 		$this->_view->banner = $this->template->banner(2);
-		$this->_view->contenido = $this->template->getContentseccion(2);
-		$this->_view->contenido2 = $this->template->getContentseccion(10);
+		$this->_view->contenido = $this->template->getContentseccion(2); //
+		$contenidoModel =  new Page_Model_DbTable_Contenido();
+		$contenidoInventario = $contenidoModel->getList("contenido_seccion ='2' AND contenido_estado = '1'", "")[0];
+		$this->_view->contenidoInventario = $contenidoInventario;
+
+
+		// print_r($contenidoInventario);
+		// $this->_view->contenido2 = $this->template->getContentseccion(10);
 
 		$this->_view->tipos = $this->getTipo();
 		$this->_view->departamentos = $this->getDepartamento();
@@ -241,7 +247,6 @@ class Page_inventarioController extends Page_mainController
 		$this->_csrf->generateCode($this->_csrf_section);
 		$this->_view->csrf_section = $this->_csrf_section;
 		$this->_view->csrf = Session::getInstance()->get('csrf')[$this->_csrf_section];
-
 	}
 
 	public function envarmensajeAction()
@@ -358,7 +363,7 @@ class Page_inventarioController extends Page_mainController
 			$res['error'] = "Error honey";
 		}
 
-	
+
 
 		if ($mail_response == 1) {
 			$res['status'] = "success";

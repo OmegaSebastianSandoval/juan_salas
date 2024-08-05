@@ -212,6 +212,17 @@
   }
 
 
+  .contenedor-servicios .col-sm-4 {
+    width: 100% !important;
+  }
+
+  .card-giratoria {
+    max-width: 420px;
+    margin-bottom: 20px;
+
+  }
+
+
 }
 
 @media (max-width:767px) {
@@ -314,6 +325,9 @@ HOME INICIO
 HOME FIN
 -------------------- */
 
+.contenido-contacto{
+  padding: 10px;
+}
 }
 
 
@@ -363,7 +377,8 @@ BANNER INTERNAS FIN
     flex: 0 0 auto;
     width: 45%;
   }
-  .content-resultados .filtros-orden .btn-home{
+
+  .content-resultados .filtros-orden .btn-home {
     padding: 7px 20px;
     font-size: 16px;
 

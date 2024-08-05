@@ -127,10 +127,10 @@
 							<td class="text-right">
 								<div>
 									<?php if ($content->contenido_tipo == 1) { ?>
-										<a class="btn btn-rosado btn-sm" href="<?php echo $this->route; ?>?padre=<?= $id ?>"  data-bs-toggle="tooltip" data-placement="top" title="Banners"><i class="fas fa-images"></i></a>
+										<a class="btn btn-rosado btn-sm" href="<?php echo $this->route; ?>?padre=<?= $id ?>" data-bs-toggle="tooltip" data-placement="top" title="Banners"><i class="fas fa-images"></i></a>
 									<?php } ?>
 									<?php if ($content->contenido_tipo == 2) { ?>
-										<a class="btn btn-rosado btn-sm" href="<?php echo $this->route; ?>?padre=<?= $id ?>"  data-bs-toggle="tooltip" data-placement="top" title="Columnas"><i class="fas fa-columns"></i></a>
+										<a class="btn btn-rosado btn-sm" href="<?php echo $this->route; ?>?padre=<?= $id ?>" data-bs-toggle="tooltip" data-placement="top" title="Columnas"><i class="fas fa-columns"></i></a>
 									<?php } ?>
 									<?php if (($content->contenido_tipo == 16 and !$content->contenido_archivo) || ($content->contenido_tipo == 17 && !$content->contenido_archivo) || ($content->contenido_tipo == 18 && !$content->contenido_archivo) || ($content->contenido_tipo == 19 && !$content->contenido_archivo) || ($content->contenido_tipo == 20 && !$content->contenido_archivo) || ($content->contenido_tipo == 21 && !$content->contenido_archivo)) { ?>
 										<a class="btn btn-verde btn-sm" href="<?php echo $this->route; ?>?padre=<?= $id ?>&page=1" data-bs-toggle="tooltip" data-placement="top" title="Documentos"><i class="fas fa-file-upload"></i></a>
@@ -139,33 +139,36 @@
 										<a class="btn btn-verde btn-sm" href="<?php echo $this->route; ?>?padre=<?= $id ?>&page=1" data-bs-toggle="tooltip" data-placement="top" title="Secciones documentos"><i class="fas fa-file"></i></a>
 									<?php } ?>
 									<?php if ($content->contenido_tipo == 6 || $content->contenido_tipo == 7 || $content->contenido_tipo == 8) { ?>
-										<a class="btn btn-rosado btn-sm" href="<?php echo $this->route; ?>?padre=<?= $id ?>"  data-bs-toggle="tooltip" data-placement="top" title="Elementos"><i class="fas fa-plus-square"></i></a>
+										<a class="btn btn-rosado btn-sm" href="<?php echo $this->route; ?>?padre=<?= $id ?>" data-bs-toggle="tooltip" data-placement="top" title="Elementos"><i class="fas fa-plus-square"></i></a>
 									<?php } ?>
-									<a class="btn btn-azul btn-sm" href="<?php echo $this->route; ?>/manage?id=<?= $id ?>"  data-bs-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-pen-alt"></i></a>
+									<a class="btn btn-azul btn-sm" href="<?php echo $this->route; ?>/manage?id=<?= $id ?>" data-bs-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-pen-alt"></i></a>
 
-									<?php if ($_SESSION['kt_login_level'] == 1) { ?><span  data-bs-toggle="tooltip" data-placement="top" title="Eliminar"><a class="btn btn-rojo btn-sm"  data-bs-toggle="modal" data-bs-target="#modal<?php echo $id ?>"><i class="fas fa-trash-alt"></i></a></span><?php } ?>
+									<?php if ($_SESSION['kt_login_level'] == 1) { ?><span data-bs-toggle="tooltip" data-placement="top" title="Eliminar"><a class="btn btn-rojo btn-sm" data-bs-toggle="modal" data-bs-target="#modal<?php echo $id ?>"><i class="fas fa-trash-alt"></i></a></span><?php } ?>
 								</div>
-                
-                <!-- Modal -->
-                <div class="modal fade" id="modal<?= $id ?>" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Eliminar registro</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                      <div class="modal-body">
-                        <div class="container-fluid">
-												<div class="">¿Esta seguro de eliminar este registro?</div>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-												<a class="btn btn-danger" href="<?php echo $this->route; ?>/delete?id=<?= $id ?>&csrf=<?= $this->csrf; ?><?php if ($this->padre) { echo "&padre=" . $this->padre; } ?>">Eliminar</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
+								<!-- Modal -->
+								<div class="modal fade" id="modal<?= $id ?>" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title">Eliminar registro</h5>
+												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+											</div>
+											<div class="modal-body">
+												<div class="container-fluid">
+													<div class="">¿Esta seguro de eliminar este registro?</div>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+
+												<a class="btn btn-danger" href="<?php echo $this->route; ?>/delete?id=<?= $id ?>&csrf=<?= $this->csrf; ?><?php if ($this->padre) {
+																																								echo "&padre=" . $this->padre;
+																																							} ?>">Eliminar</a>
+											</div>
+										</div>
+									</div>
+								</div>
 							</td>
 						</tr>
 					<?php } ?>

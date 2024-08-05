@@ -18,8 +18,11 @@
                     <img src="/skins/page/images/Corte/Celular.png" class="iconoHeader">
                     <span class="tel-header me-1 font-14px"><?php echo obtenerPrimerNumero($this->infopage->info_pagina_telefono) ?></span>
                 </div>
-                <a href="/page/mapadelsitio" class="btn btn-naranja rounded-pill me-2 font-14px <?php echo $this->botonactivo == 7 ? 'active' : '' ?>">
+               <!--  <a href="/page/mapadelsitio" class="btn btn-naranja rounded-pill me-2 font-14px <?php echo $this->botonactivo == 7 ? 'active' : '' ?>">
                     MAPA DEL SITIO
+                </a> -->
+                <a href="/page/contacto" class="btn btn-naranja rounded-pill me-2 font-14px <?php echo $this->botonactivo == 9 ? 'active' : '' ?>">
+                    CONTACTO
                 </a>
                 <a href="/page/archivos" class="btn btn-naranja rounded-pill font-14px <?php echo $this->botonactivo == 6 ? 'active' : '' ?>">
                     ARCHIVOS DESCARGABLES
@@ -44,7 +47,7 @@
                                 <li><a href="#"><span>PAGOS</span></a>
                                     <ul>
                                         <?php foreach ($this->links as $link) { ?>
-                                            <li><a href="<?= $link->publicidad_enlace ?>" <?= $link->publicidad_tipo_enlace === '1' ? 'target="_blank"' : '' ?>><i class="icon-menu fas fa-caret-right"></i><?= $link->publicidad_texto_enlace ?></a></li>
+                                            <li><a href="<?= $link->publicidad_enlace ?>" <?= $link->publicidad_tipo_enlace === '1' ? 'target="_blank"' : '' ?>><?= $link->publicidad_texto_enlace ?></a></li>
                                         <?php } ?>
                                         <!-- <li><a href="/page/arrendatario"><i class="icon-menu fas fa-caret-right"></i>ARRENDATARIO</a></li>
                                     <li><a href="/page/propietario"><i class="icon-menu fas fa-caret-right"></i>PROPIETARIO</a></li> -->

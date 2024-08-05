@@ -4,9 +4,32 @@ echo $this->banner;
 <div class="container contenedor-inventario pb-2">
 
   <?php
-  echo $this->contenido;
+  // echo $this->contenido;
   ?>
-  <form action="/page/inventario/filtrar"> 
+  <section class="contenedor-seccion">
+    <div class="content-box container">
+      <div class="content-titulo">
+
+       
+          <?php if ($this->contenidoInventario->contenido_imagen) { ?>
+            <img src="/images/<?= $this->contenidoInventario->contenido_imagen ?>" alt="Imagen de inventarios">
+          <?php } ?>
+          <?php if ($this->contenidoInventario->contenido_titulo_ver == 1) { ?>
+            <h2 class="titulo_seccion titulo_51 titulo_principal_seccion">
+              <?= $this->contenidoInventario->contenido_titulo ?>
+            </h2>
+          <?php } ?>
+        
+      </div>
+
+      <?= $this->contenidoInventario->contenido_introduccion ?>
+
+      <?= $this->contenidoInventario->contenido_descripcion ?>
+
+    </div>
+  </section>
+
+  <form action="/page/inventario/filtrar">
     <div class="row">
       <div class="col-6 col-md-4 col-lg-3 mb-4">
         <select class="form-select form-control" name="departamento" id="departamento" required>
@@ -101,4 +124,3 @@ echo $this->banner;
     min-height: auto;
   }
 </style>
-
