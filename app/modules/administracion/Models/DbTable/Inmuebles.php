@@ -108,7 +108,7 @@ class Administracion_Model_DbTable_Inmuebles extends Db_Table
 		if ($order != '') {
 			$orders = ' ORDER BY ' . $order;
 		}
-		 $select = 'SELECT inmuebles.*, departamentos.nombre AS departamento1, ciudades.nombre AS ciudad1, sectores.nombre AS sector1, localidades.nombre AS localidad1, tipos.nombre AS tipo1 FROM ((((inmuebles LEFT JOIN departamentos ON departamentos.id = inmuebles.departamento) LEFT JOIN ciudades ON ciudades.id = inmuebles.ciudad) LEFT JOIN sectores ON sectores.id = inmuebles.sector) LEFT JOIN localidades ON localidades.id = inmuebles.localidad) LEFT JOIN tipos ON tipos.id = inmuebles.tipo  ' . $filter . ' ' . $orders;
+		  $select = 'SELECT inmuebles.*, departamentos.nombre AS departamento1, ciudades.nombre AS ciudad1, sectores.nombre AS sector1, localidades.nombre AS localidad1, tipos.nombre AS tipo1 FROM ((((inmuebles LEFT JOIN departamentos ON departamentos.id = inmuebles.departamento) LEFT JOIN ciudades ON ciudades.id = inmuebles.ciudad) LEFT JOIN sectores ON sectores.id = inmuebles.sector) LEFT JOIN localidades ON localidades.id = inmuebles.localidad) LEFT JOIN tipos ON tipos.id = inmuebles.tipo  ' . $filter . ' ' . $orders;
 		$res = $this->_conn->query($select)->fetchAsObject();
 		return $res;
 	}

@@ -64,14 +64,35 @@ class Core_Model_Sendingemail
   {
     $this->_view->data = $data;
     $infopageModel = new Page_Model_DbTable_Informacion();
-		$informacion = $infopageModel->getById(1);
+    $informacion = $infopageModel->getById(1);
 
-    // $this->email->getMail()->addAddress($data, "");
-    // $informacion->info_pagina_correo_oculto
-    $this->email->getMail()->addAddress("desarrollo8@omegawebsystems.com");
-    $this->email->getMail()->addBCC("juansesdvsf@gmail.com");
-    $content = $this->_view->getRoutPHP('/../app/modules/core/Views/templatesemail/mailFormulario.php');
+
+    $this->email->getMail()->addBCC("desarrollo8@omegawebsystems.com");
+
+    $content = $this->_view->getRoutPHP('/../app/modules/core/Views/templatesemail/mailInventario.php');
     $this->email->getMail()->Subject = 'Formulario de contacto Juan Salas';
+    $this->email->getMail()->msgHTML($content);
+    $this->email->getMail()->AltBody = $content;
+    $this->email->getMail()->addBCC($informacion->info_pagina_correo_oculto);
+    if ($this->email->sed() == true) {
+      return 1;
+    } else {
+      return 2;
+    }
+  }
+  public function sendMailInventario($data)
+  {
+    $this->_view->data = $data;
+    $infopageModel = new Page_Model_DbTable_Informacion();
+    $informacion = $infopageModel->getById(1);
+
+  
+    // $this->email->getMail()->addAddress($informacion->info_pagina_correo_oculto);
+    //$this->email->getMail()->addBCC("gadjcs@gmail.com");
+  
+    $this->email->getMail()->addAddress("desarrollo8@omegawebsystems.com");
+    $content = $this->_view->getRoutPHP('/../app/modules/core/Views/templatesemail/mailInventario.php');
+    $this->email->getMail()->Subject = 'Contacto Inmueble Juan Salas';
     $this->email->getMail()->msgHTML($content);
     $this->email->getMail()->AltBody = $content;
     $this->email->getMail()->addBCC($informacion->info_pagina_correo_oculto);

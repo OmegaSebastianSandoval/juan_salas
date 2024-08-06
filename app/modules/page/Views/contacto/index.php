@@ -81,14 +81,14 @@ echo $this->banner;
       </form>
     </div>
     <div class="col-12 col-lg-6  order-1 order-lg-2">
-      <h2 class="mb-4">Detalles de Contacto</h2>
-
+      
       <div class="contenido-contacto shadow rounded">
-        <img class="img-contacto" src="/images/<?= $this->imagenContacto->publicidad_imagen ?>" alt="Imagen de contacenos">
-        <span><img src="/skins/page/images/Corte/icono1_contacto.gif" /> <?= $this->infopage->info_pagina_correos_contacto ?> </span>
-        <span><img src="/skins/page/images/Corte/icono2_contacto.gif" /> <?= $this->infopage->info_pagina_telefono ?> </span>
-        <span><img src="/skins/page/images/Corte/icono3_contacto.gif" /> <?= $this->infopage->info_pagina_direccion_contacto ?> </span>
-        <span><img src="/skins/page/images/Corte/icono4_contacto.gif" /> <?= $this->infopage->info_pagina_informacion_contacto ?> </span>
+        <h2 class="mb-4">Detalles de Contacto</h2>
+        <!-- <img class="img-contacto" src="/images/<?= $this->imagenContacto->publicidad_imagen ?>" alt="Imagen de contacenos"> -->
+        <span><img src="/skins/page/images/Corte/mailb.png" /> <?= $this->infopage->info_pagina_correos_contacto ?> </span>
+        <span><img src="/skins/page/images/Corte/phoneb.png" /> <?= $this->infopage->info_pagina_telefono ?> </span>
+        <span><img src="/skins/page/images/Corte/houseb.png" /> <?= $this->infopage->info_pagina_direccion_contacto ?> </span>
+        <span><img src="/skins/page/images/Corte/mailb.png" /> <?= $this->infopage->info_pagina_informacion_contacto ?> </span>
 
       </div>
     </div>

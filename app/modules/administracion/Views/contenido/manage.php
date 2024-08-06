@@ -190,6 +190,15 @@
 									</span>
 								</label>
 							</div>
+							<div class="col-3">
+								<label class="radio-disenio">
+									<input type="radio" value="7" <?php if($this->content->contenido_disenio == '7'){ ?> checked  <?php } ?> name="contenido_disenio" id="contenido_disenio" class="form-control"   >
+									<span>
+										Card giratoria
+										<img src="/skins/administracion/images/forma4.png">
+									</span>
+								</label>
+							</div>
 						</div>
 						<div class="help-block with-errors"></div>
 					</div>

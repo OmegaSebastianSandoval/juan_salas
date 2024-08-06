@@ -12,7 +12,7 @@
           <b">
             <?php echo $this->data['nombre'] ?>
             </b>
-            ha enviado un mensaje con los siguientes datos:
+            ha enviado un mensaje desde el formulario de contacto del inmueble código: <strong> <?php echo $this->data['ref'] ?></strong>
         </span>
       </td>
     </tr>
@@ -31,31 +31,13 @@
       <td style="padding: 3px 20px;">
         <span style="color: #6e6e6e;">
           <b>
-            Cuidad:
+            Teléfono:
           </b>
-          <?php echo $this->data['city'] ?>
+          <?php echo $this->data['telefono'] ?>
         </span>
       </td>
     </tr>
-    <tr>
-      <td style="padding: 3px 20px;">
-        <span style="color: #6e6e6e;">
-          <b>
-            Teléfono:
-          </b>
-          <?php echo $this->data['phone'] ?>
-      </td>
-    </tr>
-
-    <tr>
-      <td style="padding: 3px 20px;">
-        <span style="color: #6e6e6e;">
-          <b>
-            Empresa:
-          </b>
-          <?php echo $this->data['enterprise'] ?>
-      </td>
-    </tr>
+   
 
 
     <tr>

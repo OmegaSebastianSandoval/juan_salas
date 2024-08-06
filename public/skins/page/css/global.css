@@ -7,11 +7,11 @@
 
 
 :root {
-  --naranjaCorte: #f87004;
+  --naranja: #f87004;
   --grisNav: #f7f7f7;
   --morado: #545d86;
-  --menuOpciones: #757b96;
-  --cardHeader: #495176;
+  --morado-claro: #757b96;
+  --morado-dos: #495176;
   --fondoTexto: #5c6995;
   --gris-claro: #E5E5E5;
   --gris-oscuro: #333333;
@@ -53,7 +53,7 @@ body {
 
 
 h2 {
-  color: var(--naranjaCorte);
+  color: var(--naranja);
   font-weight: 800;
   font-size: 1.5rem;
 }
@@ -93,8 +93,8 @@ header .header-content .red {
 }
 
 header .header-content .red i {
-  color: var(--naranjaCorte);
-  transition: transform 0.3s ease-in-out;
+  color: var(--naranja);
+  transition: all 0.3s ease-in-out;
   font-size: 21px;
 }
 
@@ -107,11 +107,12 @@ header .header-content .red:hover i {
 }
 
 header .header-content nav ul {
-  display: table;
+  display: flex;
   width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
+  justify-content: space-between;
 }
 
 header .header-content nav ul li {
@@ -121,6 +122,7 @@ header .header-content nav ul li {
   vertical-align: middle;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
+  padding: 0 10px;
 }
 
 header .header-content nav ul li:hover {
@@ -137,7 +139,7 @@ header .header-content nav ul li a {
   display: table;
   width: 100%;
   text-decoration: none;
-  color: var(--menuOpciones);
+  color: var(--morado-claro);
 }
 
 header .header-content nav ul li a span {
@@ -190,25 +192,25 @@ header .header-content-home2 .icono-header {
 }
 
 .lineaNaranja {
-  background-color: var(--naranjaCorte);
+  background-color: var(--naranja);
   height: 0.5rem;
 }
 
 .btn-naranja {
-  background-color: var(--naranjaCorte);
+  background-color: var(--naranja);
   color: white;
   transition: all 0.3s ease-in-out;
   font-weight: 500;
 }
 
 .btn-naranja:hover {
-  border-color: var(--naranjaCorte);
-  color: var(--naranjaCorte);
+  border-color: var(--naranja);
+  color: var(--naranja);
 }
 
 .btn-naranja.active {
-  border-color: var(--naranjaCorte);
-  color: var(--naranjaCorte);
+  border-color: var(--naranja);
+  color: var(--naranja);
   border: 2px solid;
   font-weight: 600;
 }
@@ -219,6 +221,8 @@ header .header-content-home2 .icono-header {
 
 .fondo-gris {
   background: var(--grisNav);
+  box-shadow: 0 2px 5px -1px #bab5b5;
+
 }
 
 ul#menu ul {
@@ -280,6 +284,67 @@ ul#menu ul li:hover a {
   color: #FFF !important;
 }
 
+/* From Uiverse.io by joe-watson-sbf */
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.search__input {
+  font-family: inherit;
+  font-size: inherit;
+  background-color: #f4f2f2;
+  border: none;
+  color: #646464;
+  padding: 0.7rem 1rem;
+  border-radius: 30px;
+  width: 12em;
+  transition: all ease-in-out .5s;
+  /* margin-right: -2rem; */
+}
+
+.search__input:hover,
+.search__input:focus {
+  box-shadow: 0 0 1em #00000013;
+}
+
+.search__input:focus {
+  outline: none;
+  background-color: #f0eeee;
+}
+
+.search__input::-webkit-input-placeholder {
+  font-weight: 100;
+  color: #ccc;
+}
+
+.search__input:focus+.search__button {
+  background-color: #f0eeee;
+}
+
+.search__button {
+  border: none;
+  background-color: transparent;
+  /* margin-top: .1em; */
+}
+
+.search__button:hover {
+  cursor: pointer;
+}
+
+.search__icon {
+  height: 30px;
+  width: 30px;
+  fill: var(--morado);
+  transition: all 300ms ease-in-out;
+}
+
+.search__icon:hover {
+  transform: scale(1.1);
+}
+
 /* ***************
 HEADER FIN
 **************** */
@@ -335,7 +400,7 @@ HEADER FIN
 
 .carousel-control-next i,
 .carousel-control-prev i {
-  color: var(--naranjaCorte) !important;
+  color: var(--naranja) !important;
 
 }
 
@@ -490,16 +555,23 @@ HEADER FIN
 HOME INICIO
 **************************** */
 
-.contenido-home .id_26 .design-four {
+.contenido-home .id_26 .design-four,
+.contenedor-conzcanos .id_12 .design-four {
   box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
   padding-bottom: 2rem !important;
   max-width: 265px;
   margin: auto;
 }
 
-.contenido-home .id_26 .design-four .imagen-contenido {
+.contenedor-conzcanos .id_12 .design-four {
+  max-width: 345px;
+  /* height: 385px; */
+}
 
-  background-color: var(--cardHeader);
+.contenido-home .id_26 .design-four .imagen-contenido,
+.contenedor-conzcanos .id_12 .design-four .imagen-contenido {
+
+  background-color: var(--morado-dos);
   padding: 45px 0 23px 0;
 
   border-bottom-left-radius: 110px;
@@ -509,6 +581,18 @@ HOME INICIO
   align-items: flex-end;
 }
 
+.contenedor-conzcanos .id_12 .design-four .imagen-contenido {
+
+  padding: 26px 0 20px 0;
+
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+
 .contenido-home .id_26 .design-four .imagen-contenido img {
   display: block;
   margin: auto;
@@ -517,7 +601,14 @@ HOME INICIO
   width: 100px;
 }
 
-.contenido-home .id_26 .design-four h2 {
+.contenedor-conzcanos .id_12 .design-four .imagen-contenido img {
+  display: block;
+  margin: auto;
+  object-fit: cover;
+}
+
+.contenido-home .id_26 .design-four h2,
+.contenedor-conzcanos .id_12 .design-four h2 {
   color: var(--fondoTexto);
   font-weight: 800;
   margin: 1.5rem 0;
@@ -525,6 +616,24 @@ HOME INICIO
   text-align: center;
 }
 
+.contenedor-conzcanos .id_12 .design-four h2 {
+  color: #FFF;
+  margin: 0;
+  margin-top: 15px;
+
+}
+
+
+.contenedor-conzcanos .id_12 .design-four .content-descripcion {
+  margin-top: 20px;
+  height: 144px;
+  display: flex;
+  align-items: center;
+}
+
+.contenedor-conzcanos .id_12 .design-four .descripcion {
+  padding: 0 15px;
+}
 
 .btn-home {
   display: block;
@@ -539,7 +648,7 @@ HOME INICIO
   text-transform: uppercase;
   border: 0;
   box-shadow: #db6507 0px 7px 0px 0px;
-  background-color: var(--naranjaCorte);
+  background-color: var(--naranja);
   border-radius: 25px;
   overflow: hidden;
   transition: all 300ms ease-in-out;
@@ -752,7 +861,7 @@ HOME INICIO
   font-size: 2rem;
   text-align: center;
   font-weight: 700;
-  color: var(--cardHeader);
+  color: var(--morado-dos);
 }
 
 .content-preguntas .img-preguntas {
@@ -767,7 +876,7 @@ HOME INICIO
 .preguntas li {
   line-height: 30px;
   font-size: 20px;
-  color: var(--cardHeader);
+  color: var(--morado-dos);
 }
 
 
@@ -810,7 +919,7 @@ footer {
 }
 
 .footer a:hover {
-  color: var(--naranjaCorte);
+  color: var(--naranja);
 
   font-weight: 600;
 }
@@ -890,20 +999,26 @@ footer {
   text-align: right;
   display: block;
   padding: 5px;
+  cursor: pointer;
 }
 
+.btn-menu i {
+  font-size: 32px;
+}
+
+
 header .botonera-responsive .item {
-  color: var(--cardHeader);
+  color: var(--morado-dos);
 }
 
 .item {
   list-style: none;
-  color: var(--cardHeader);
+  color: var(--morado-dos);
 }
 
 .item2 {
   list-style: none;
-  color: var(--cardHeader);
+  color: var(--morado-dos);
   border-top: 1px solid #dee2e6;
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
@@ -927,18 +1042,18 @@ header .botonera-responsive .item {
 }
 
 .icon-naranja {
-  color: var(--naranjaCorte);
+  color: var(--naranja);
 }
 
 .item a {
-  color: var(--cardHeader);
+  color: var(--morado-dos);
   font-size: 17px;
   margin-left: 5px;
   text-decoration: none;
 }
 
 .item a i {
-  color: var(--naranjaCorte);
+  color: var(--naranja);
 }
 
 #sub-menu {
@@ -951,6 +1066,80 @@ SERVICIOS INICIO
 ******************/
 .contenedor-servicio {
   padding-top: 20px;
+}
+
+.contenedor-servicio .col-sm-4 {}
+
+.card-giratoria {
+  max-width: 300px;
+  height: 300px;
+  perspective: 1000px;
+  margin-inline: auto;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.999s;
+}
+
+.card-giratoria:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  /* background-color: var(--morado-claro); */
+  color: #fff;
+  display: grid;
+  /* align-items: center; */
+  /* border: 10px solid var(--morado-claro); */
+  border-radius: 10px;
+  justify-content: center;
+  font-size: 24px;
+  transform: rotateY(0deg);
+  box-shadow: 3px 3px 6px #545d865e;
+  gap: 10px;
+
+}
+
+.card-front img {
+  display: block;
+  margin-top: auto;
+  margin-inline: auto;
+}
+
+.card-front h2 {
+  margin: 0;
+}
+
+
+
+
+.card-back {
+  background-color: var(--morado);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  border: 10px solid var(--morado);
+  border-radius: 10px;
+  justify-content: center;
+  font-size: 17px;
+  transform: rotateY(180deg);
+}
+
+.card-back .descripcion {
+  color: #fff;
+
 }
 
 
@@ -966,12 +1155,12 @@ SERVICIOS INICIO
 }
 
 .accordion-item h2 {
-  color: var(--naranjaCorte);
+  color: var(--naranja);
 
 }
 
 .accordion-button:not(.collapsed) {
-  color: var(--naranjaCorte);
+  color: var(--naranja);
   background-color: #f8700421;
   font-weight: 900;
 }
@@ -1011,7 +1200,7 @@ CONOZCANOS INICIO
   display: block;
   width: 3em;
   max-width: 70%;
-  border-bottom: 4px solid var(--naranjaCorte);
+  border-bottom: 4px solid var(--naranja);
   margin: auto;
   height: 5px;
   padding: 5px 0;
@@ -1019,7 +1208,7 @@ CONOZCANOS INICIO
 
 
 .contenedor-conzcanos h4 {
-  color: var(--naranjaCorte);
+  color: var(--naranja);
   font-weight: 800;
   font-size: 1.5rem;
 }
@@ -1046,7 +1235,7 @@ CONOZCANOS INICIO
   margin-bottom: 15px;
 }
 
-.id_15.contenedor-seccion .introduccion::after {
+.id_15.contenedor-seccion .imagen-contenido::after {
   content: "";
   display: block;
   width: 5em;
@@ -1082,24 +1271,116 @@ CONOZCANOS FIN
 PROCESOS INICIO
 *******************************/
 .acordion-tab .nav-link {
-  color: var(--naranjaCorte);
+  color: var(--naranja);
   width: max-content;
 
 }
 
 .acordion-tab .nav-link.active {
-  background-color: var(--naranjaCorte) !important;
+  background-color: var(--naranja) !important;
   color: #FFF;
 
 
 }
 
 .acordion-tab :focus-visible {
-  outline: var(--naranjaCorte) auto 1px;
+  outline: var(--naranja) auto 1px;
 }
 
 .acordion-tab .tab-content {
   background-color: #eeeeee;
+}
+
+
+
+.cta {
+  display: flex;
+  padding: 11px 10px;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  color: white;
+  background: var(--naranja);
+  transition: 1s;
+  box-shadow: 6px 6px 0 var(--morado);
+  transform: skewX(-15deg);
+  border: none;
+  cursor: pointer;
+  min-width: 376px;
+  justify-content: space-between;
+}
+
+.cta:focus {
+  outline: none;
+}
+
+.cta:hover,
+.cta.active {
+  transition: 0.5s;
+  box-shadow: 10px 10px 0 var(--morado);
+}
+
+.cta .second {
+  transition: 0.5s;
+  margin-right: 0px;
+}
+
+.cta:hover .second,
+.cta.active .second {
+  transition: 0.5s;
+  margin-right: 45px;
+}
+
+.span {
+  transform: skewX(15deg);
+}
+
+.second {
+  width: 20px;
+  margin-left: 30px;
+  position: relative;
+  top: 12%;
+}
+
+.one {
+  transition: 0.4s;
+  transform: translateX(-60%);
+}
+
+.two {
+  transition: 0.5s;
+  transform: translateX(-30%);
+}
+
+.cta:hover .three,
+.cta.active .three {
+  animation: color_anim 1s infinite 0.2s;
+}
+
+.cta:hover .one,
+.cta.active .one {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.6s;
+}
+
+.cta:hover .two,
+.cta.active .two {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.4s;
+}
+
+@keyframes color_anim {
+  0% {
+    fill: white;
+  }
+
+  50% {
+    fill: var(--morado);
+  }
+
+  100% {
+    fill: white;
+  }
 }
 
 /* *********************************
@@ -1114,7 +1395,8 @@ CONTACTENOS INICIO
 
 .contenedor-contacto {}
 
-.contenedor-contacto .form-label {
+.contenedor-contacto .form-label,
+.cont-form-inmueble .form-label {
 
   color: var(--morado);
   font-weight: 600;
@@ -1123,7 +1405,8 @@ CONTACTENOS INICIO
 
 }
 
-.contenedor-contacto .form-control {
+.contenedor-contacto .form-control,
+.cont-form-inmueble .form-control {
   border-radius: 20px;
   border: 1px solid var(--morado);
   padding: 10px 20px;
@@ -1134,7 +1417,8 @@ CONTACTENOS INICIO
   background-color: #f4f4f4;
 }
 
-.contenedor-contacto .form-control:focus {
+.contenedor-contacto .form-control:focus,
+.cont-form-inmueble .form-control:focus {
   box-shadow: 0 0 0 .25rem #545d8664;
 }
 
@@ -1189,8 +1473,8 @@ MAPA DEL SITIO INICIO
 .content-mapa a:focus,
 .content-mapa a.active {
   outline: 0;
-  color: var(--naranjaCorte);
-  border-color: var(--naranjaCorte);
+  color: var(--naranja);
+  border-color: var(--naranja);
   z-index: 1;
 }
 
@@ -1233,12 +1517,18 @@ CONTACTO INICIO
 *******************************/
 .contenido-contacto {
   display: grid;
-  gap: 7px;
+  gap: 15px;
   background-color: #f4f4f5;
-  padding: 10px;
+  padding: 70px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
   border-color: 1px solid var(--morado);
+  background-image: url(/skins/page/images/Corte/fondo-contacto.png);
+  height: 100%;
 
+}
+
+.contenido-contacto h2 {
+  color: #FFF;
 }
 
 .contenido-contacto .img-contacto {
@@ -1246,15 +1536,22 @@ CONTACTO INICIO
   margin: 0 auto;
 }
 
+
 .contenido-contacto span {
   display: flex;
-  gap: 7px;
-  color: var(--morado);
+  gap: 15px;
+  color: var(--gris-claro);
+  font-weight: 500;
+  align-items: center;
+}
+
+.contenido-contacto span p {
+  margin: 0;
 }
 
 .contenido-contacto span img {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 
 
@@ -1269,6 +1566,22 @@ CONTACTO FIN
 /* *********************************
 INVENTARIO INICIO
 *******************************/
+.contenedor-inventario .content-titulo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.contenedor-inventario .content-titulo img {
+  width: 50px;
+}
+
+.contenedor-inventario .content-titulo h2 {
+  margin: 0;
+}
+
 
 .contenedor-inventario .form-control {
   border-radius: 20px;
@@ -1288,7 +1601,7 @@ INVENTARIO INICIO
 }
 
 .contenedor-inventario .form-check-label {
-  color: var(--naranjaCorte);
+  color: var(--naranja);
   cursor: pointer;
 }
 
@@ -1299,8 +1612,8 @@ INVENTARIO INICIO
 
 .contenedor-inventario .form-check-input:checked,
 .section-filtros .form-check-input:checked {
-  background-color: var(--naranjaCorte);
-  border-color: var(--naranjaCorte);
+  background-color: var(--naranja);
+  border-color: var(--naranja);
 }
 
 .contenedor-inventario .form-check-input:focus,
@@ -1316,7 +1629,7 @@ INVENTARIO INICIO
 }
 
 .content-filtros-activos {
-  background-color: var(--cardHeader);
+  background-color: var(--morado-dos);
   padding: 15px;
 }
 
@@ -1356,6 +1669,7 @@ INVENTARIO INICIO
 .content-filtros-disponibles h2 {
   font-size: 19px;
   color: var(--morado);
+  text-align: center;
 }
 
 .content-filtros-disponibles h3 {
@@ -1445,7 +1759,7 @@ INVENTARIO INICIO
 }
 
 .resultados-inmuebles .inmueble h5 {
-  color: var(--cardHeader);
+  color: var(--morado-dos);
   font-size: 16px;
   font-weight: 600;
   text-align: center;
@@ -1571,18 +1885,18 @@ INVENTARIO INICIO
 
 
 .resultados-inmuebles .page-link {
-  color: var(--cardHeader);
+  color: var(--morado-dos);
 }
 
 .resultados-inmuebles .active>.page-link,
 .resultados-inmuebles .page-link.active {
-  background-color: var(--cardHeader);
-  border-color: var(--cardHeader);
+  background-color: var(--morado-dos);
+  border-color: var(--morado-dos);
   color: #fff;
 
 }
 
-.resultados-inmuebles .page-link:focus{
+.resultados-inmuebles .page-link:focus {
   box-shadow: 0 0 0 0.25rem #545d8660;
 }
 
@@ -1590,6 +1904,172 @@ INVENTARIO INICIO
 INVENTARIO FIN
 *******************************/
 
+
+
+/* *********************************
+INVENTARIO DETALLE INICIO
+*******************************/
+.header-title {
+  grid-area: title;
+
+  font-style: normal;
+  font-weight: bold;
+
+  color: rgb(37, 33, 41);
+  margin-bottom: 4px;
+  font-size: 36px;
+  line-height: 48px;
+  margin-bottom: 8px;
+}
+
+.header-title span {
+  display: block;
+
+  color: rgb(120, 116, 123);
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.title-location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.title-location i {
+  color: var(--morado);
+  font-size: 20px;
+}
+
+
+
+.title-location h2 {
+  font-size: 14px;
+  line-height: 24px;
+  color: rgb(67, 62, 71);
+  font-weight: normal;
+  margin: 0;
+}
+
+.title-location h2 span {
+  display: inline;
+  margin-left: 4px;
+  font-weight: 700;
+}
+
+.header-price {
+  margin-top: 15px;
+}
+
+.header-price .current-price {
+  font-size: 36px;
+  line-height: 48px;
+}
+
+.header-price .current-price {
+  display: block;
+  color: var(--naranja);
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 48px;
+  margin-bottom: 15px;
+}
+
+.header-price .current-price span {
+
+  display: block;
+  font-family: Montserrat;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(120, 116, 123);
+  font-weight: 500;
+}
+
+.contenedor-descripcion {
+  margin-bottom: 20px;
+}
+
+.contenedor-descripcion h3 {
+  color: #FFF;
+  font-size: 19px;
+  margin: 0;
+  padding: 15px 10px;
+  background-color: var(--morado-dos);
+}
+
+.contenedor-descripcion .descripcion {
+  margin-top: 10px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 150%;
+  text-align: justify;
+}
+
+.contenedor-descripcion .descripcion .cont-info {
+  margin-bottom: 15px;
+}
+
+.contenedor-descripcion .descripcion .cont-info i {
+  font-size: 22px;
+  color: var(--naranja);
+  width: 14px;
+  display: block
+}
+
+.contenedor-descripcion .descripcion .cont-info .titulo-detalle {
+  font-weight: 600;
+  color: var(--morado-claro);
+  text-align: start;
+}
+
+.contenedor-descripcion .descripcion .cont-info .sub-detalle {
+
+  color: var(--gris-medio);
+  text-align: start;
+}
+
+
+.title-section {
+  margin-bottom: 38px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  border-bottom: 1px solid rgb(209, 209, 209);
+  line-height: 36px;
+
+}
+
+.contenedorfotos img {
+  max-width: 100%;
+  height: auto;
+}
+
+#myCarousel {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+#myCarousel .f-carousel__slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.f-carousel__nav {
+  position: static;
+}
+
+.fancybox__nav {
+  /* position: absolute !important; */
+  position: static;
+}
+
+/* *********************************
+INVENTARIO DETALLE FIN
+*******************************/
 
 
 
@@ -1652,7 +2132,7 @@ CONTENEDOR DE DOCUMENTOS
 }
 
 .docs-container .items-docs-row::-webkit-scrollbar-thumb {
-  background: var(--naranjaCorte);
+  background: var(--naranja);
   border-radius: 50px;
 }
 
@@ -1763,7 +2243,7 @@ CONTENEDOR DE DOCUMENTOS
 }
 
 .docs-container .fa-file-pdf {
-  color: var(--naranjaCorte);
+  color: var(--naranja);
   transition: all 0.3s ease;
 }
 

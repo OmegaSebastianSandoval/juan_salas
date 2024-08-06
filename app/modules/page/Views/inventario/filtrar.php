@@ -3,7 +3,7 @@
         <form action="/page/inventario/filtrar">
             <div class="row">
                 <div class="col-6 col-md-4 col-lg-3 mb-4">
-                    <select class="form-select form-control" name="departamento" id="departamento">
+                    <select class="form-select form-control" name="departamento" id="departamento" required>
                         <option value="" selected disabled>--Departamento--</option>
                         <?php foreach ($this->departamentos as  $departamento) { ?>
                             <option value="<?php echo $departamento->id ?>" <?php echo $this->departamento === $departamento->id ? 'selected' : '' ?>><?php echo $departamento->nombre ?></option>
@@ -51,7 +51,7 @@
 
                 <div class="col-6 col-md-4 col-lg-3 mb-4">
                     <select class="form-select form-control" name="area" id="area">
-                        <option value="" selected disabled>Área (mts&sup2;)</option>
+                        <option value="" selected disabled>Área (m&sup2;)</option>
                         <option value="all" <?php echo $this->area === "all" ? 'selected' : '' ?>></option>
                         <option value="0-50" <?php echo $this->area === "0-50" ? 'selected' : '' ?>>De 0 a 50</option>
                         <option value="50-100" <?php echo $this->area === "50-100" ? 'selected' : '' ?>>De 50 a 100</option>
@@ -67,14 +67,14 @@
                 </div>
 
                 <div class="col-6 col-md-4 col-lg-3 mb-4 d-flex gap-2 justify-content-center align-items-center">
-                    <div class="form-check">
+                    <div class="form-check  ps-0">
                         <label class="form-check-label" for="compra">
                             Compra
                         </label>
                     </div>
                     <input class="form-check-input" type="checkbox" value="1" name="compra" id="compra" <?php echo $this->compra === "1" ? 'checked' : '' ?>>
 
-                    <div class="form-check">
+                    <div class="form-check  ps-0">
                         <label class="form-check-label" for="arriendo">
                             Arriendo
                         </label>
@@ -92,7 +92,7 @@
 
 <div class="container mt-4  pb-4">
     <div class="row">
-        <div class="col-12 col-md-3 col-lg-2">
+        <div class="col-12 col-lg-3">
             <div class="content-filtros-activos">
                 <h2>
                     Filtros Activos
@@ -153,49 +153,94 @@
                 </h2>
 
                 <div class="content-filtros-activo-ind">
-                    <h3>Precio de Arriendo (Millones)</h3>
-                    <div class="lista_disponibles">
-                        <ul>
-                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PA=0-5" class="enlace <?= $this->PA == '0-5' ? 'active' : '' ?>">De 0 a 5</a></li>
-                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PA=5-10" class="enlace <?= $this->PA == '5-10' ? 'active' : '' ?>">De 5 a 10</a></li>
-                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PA=10-20" class="enlace <?= $this->PA == '10-20' ? 'active' : '' ?>">De 10 a 20</a></li>
-                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PA=20-50" class="enlace <?= $this->PA == '20-50' ? 'active' : '' ?>">De 20 a 50</a></li>
-                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PA=50-1000" class="enlace <?= $this->PA == '50-1000' ? 'active' : '' ?>">Más de 50</a></li>
-                        </ul>
+
+                    <div class="accordion" id="acordionPrecio">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOnePrecio" aria-expanded="true" aria-controls="collapseOnePrecio">
+                                    Precio de Arriendo (Millones)
+                                </button>
+                            </h2>
+                            <div id="collapseOnePrecio" class="accordion-collapse collapse show" data-bs-parent="#acordionPrecio">
+                                <div class="accordion-body">
+                                    <div class="lista_disponibles">
+                                        <ul>
+                                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PA=0-5" class="enlace <?= $this->PA == '0-5' ? 'active' : '' ?>">De 0 a 5</a></li>
+                                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PA=5-10" class="enlace <?= $this->PA == '5-10' ? 'active' : '' ?>">De 5 a 10</a></li>
+                                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PA=10-20" class="enlace <?= $this->PA == '10-20' ? 'active' : '' ?>">De 10 a 20</a></li>
+                                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PA=20-50" class="enlace <?= $this->PA == '20-50' ? 'active' : '' ?>">De 20 a 50</a></li>
+                                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PA=50-1000" class="enlace <?= $this->PA == '50-1000' ? 'active' : '' ?>">Más de 50</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+
                 </div>
 
                 <div class="content-filtros-activo-ind">
-                    <h3>Precio de Venta <br>(Millones)</h3>
-                    <div class="lista_disponibles">
-                        <ul>
-                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=0-50" class="enlace <?= $this->PV == '0-50' ? 'active' : '' ?> ">De 0 a 50</a></li>
-                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=50-100" class="enlace <?= $this->PV == '50-100' ? 'active' : '' ?> ">De 50 a 100</a></li>
-                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=100-150" class="enlace <?= $this->PV == '100-150' ? 'active' : '' ?> ">De 100 a 150</a></li>
-                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=150-200" class="enlace <?= $this->PV == '150-200' ? 'active' : '' ?> ">De 150 a 200</a></li>
-                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=200-300" class="enlace <?= $this->PV == '200-300' ? 'active' : '' ?> ">De 200 a 300</a></li>
-                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=300-500" class="enlace <?= $this->PV == '300-500' ? 'active' : '' ?> ">De 300 a 500</a></li>
-                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=500-1000" class="enlace <?= $this->PV == '500-1000' ? 'active' : '' ?> ">De 500 a 1000</a></li>
-                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=1000-10000" class="enlace <?= $this->PV == '1000-10000' ? 'active' : '' ?> ">Más de 1000</a></li>
-                        </ul>
+
+                    <div class="accordion" id="acordionPrecioVenta">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOnePrecioVenta" aria-expanded="true" aria-controls="collapseOnePrecioVenta">
+                                    Precio de Venta (Millones)
+                                </button>
+                            </h2>
+                            <div id="collapseOnePrecioVenta" class="accordion-collapse collapse show" data-bs-parent="#acordionPrecioVenta">
+                                <div class="accordion-body">
+                                    <div class="lista_disponibles">
+                                        <ul>
+                                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=0-50" class="enlace <?= $this->PV == '0-50' ? 'active' : '' ?> ">De 0 a 50</a></li>
+                                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=50-100" class="enlace <?= $this->PV == '50-100' ? 'active' : '' ?> ">De 50 a 100</a></li>
+                                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=100-150" class="enlace <?= $this->PV == '100-150' ? 'active' : '' ?> ">De 100 a 150</a></li>
+                                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=150-200" class="enlace <?= $this->PV == '150-200' ? 'active' : '' ?> ">De 150 a 200</a></li>
+                                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=200-300" class="enlace <?= $this->PV == '200-300' ? 'active' : '' ?> ">De 200 a 300</a></li>
+                                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=300-500" class="enlace <?= $this->PV == '300-500' ? 'active' : '' ?> ">De 300 a 500</a></li>
+                                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=500-1000" class="enlace <?= $this->PV == '500-1000' ? 'active' : '' ?> ">De 500 a 1000</a></li>
+                                            <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&PV=1000-10000" class="enlace <?= $this->PV == '1000-10000' ? 'active' : '' ?> ">Más de 1000</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+
                 </div>
 
                 <div class="content-filtros-activo-ind">
-                    <h3>Habitaciones</h3>
-                    <div class="lista_disponibles">
-                        <ul>
-                            <?php for ($j = 1; $j <= 10; $j++) { ?>
-                                <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&hab=<?php echo $j; ?>" class="enlace"><?php echo $j; ?></a></li>
-                            <?php } ?>
-                        </ul>
+
+
+                    <div class="accordion" id="acordionHabitaciones">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneHabitaciones" aria-expanded="true" aria-controls="collapseOneHabitaciones">
+                                    Habitaciones
+                                </button>
+                            </h2>
+                            <div id="collapseOneHabitaciones" class="accordion-collapse collapse show" data-bs-parent="#acordionHabitaciones">
+                                <div class="accordion-body">
+                                    <div class="lista_disponibles">
+                                        <ul>
+                                            <?php for ($j = 1; $j <= 10; $j++) { ?>
+                                                <li><a href="<?php echo $_SERVER['REQUEST_URI']; ?>&hab=<?php echo $j; ?>" class="enlace"><?php echo $j; ?></a></li>
+                                            <?php } ?>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
 
             </div>
         </div>
-        <div class="col-12 col-md-9 col-lg-10 content-resultados">
+        <div class="col-12  col-lg-9 content-resultados">
 
 
             <?php if ($this->register_number >= 1) { ?>
@@ -227,9 +272,15 @@
                         <div class="inmueble shadow-sm rounded">
                             <div class="row">
                                 <div class="col-12 col-md-5 d-grid align-items-center">
-                                    <img src="/images/<?= $inmueble->imagen ?>" alt="Imagen de  <?= $inmueble->titulo ?>" class="img-inmueble">
+                                    <?php if ($inmueble->imagen && file_exists($_SERVER['DOCUMENT_ROOT'] . "/images/" . $inmueble->imagen)) { ?>
+                                        <img src="/images/<?= $inmueble->imagen ?>" alt="Imagen de  <?= $inmueble->titulo ?>" class="img-inmueble">
+                                    <?php } else { ?>
+                                        <img src="/skins/page/images/Corte/imagenot.jpg" alt="Imagen de  <?= $inmueble->titulo ?>" class="img-inmueble">
+
+                                    <?php } ?>
+
                                 </div>
-                                <div class="col-12 col-md-7">
+                                <div class="col-12 col-md-7 mt-3 mt-md-0">
                                     <h5><?= $inmueble->titulo ?></h5>
                                     <hr>
 
@@ -246,7 +297,7 @@
                                         </div>
                                         <div class="col-12 col-md-6 contenedor-span">
                                             <span class="inmueble-titulo">Área:</span>
-                                            <span class="inmueble-subtitulo"><?= $inmueble->area ?> mt<sup>2</sup></span>
+                                            <span class="inmueble-subtitulo"><?= $inmueble->area ?> m<sup>2</sup></span>
 
                                         </div>
                                         <div class="col-12 col-md-6 contenedor-span">
@@ -265,18 +316,24 @@
                                             <span class="inmueble-subtitulo">$<?= $inmueble->administracion >= 1 ? number_format($inmueble->administracion) : 0 ?></span>
 
                                         </div>
-                                        <div class="col-12 col-md-6 contenedor-span">
-                                            <span class="inmueble-titulo">Alquiler:
-                                            </span>
-                                            <span class="inmueble-subtitulo">$<?= $inmueble->alquiler >= 1 ? number_format($inmueble->alquiler) : 0 ?></span>
+                                        <?php if ($inmueble->alquiler >= 1) { ?>
+                                            <div class="col-12 col-md-6 contenedor-span">
+                                                <span class="inmueble-titulo">Alquiler:
+                                                </span>
+                                                <span class="inmueble-subtitulo">$<?= $inmueble->alquiler >= 1 ? number_format($inmueble->alquiler) : 0 ?></span>
 
-                                        </div>
+                                            </div>
+                                        <?php } ?>
+                                        <?php if ($inmueble->venta >= 1) { ?>
+
                                         <div class="col-12 col-md-6 contenedor-span">
                                             <span class="inmueble-titulo">Venta:
                                             </span>
                                             <span class="inmueble-subtitulo">$<?= $inmueble->venta >= 1 ? number_format($inmueble->venta) : 0 ?></span>
 
                                         </div>
+                                        <?php } ?>
+
                                         <div class="col-12 col-md-6 contenedor-span">
                                             <span class="inmueble-titulo">Departamento:
                                             </span>
@@ -339,7 +396,7 @@
 
 <style>
     .section-filtros {
-        background-color: var(--cardHeader);
+        background-color: var(--morado-dos);
         padding: 20px 0;
     }
 </style>
@@ -356,81 +413,14 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const departamentoSelect = document.getElementById('departamento');
-        const ciudadSelect = document.getElementById('ciudad');
-        const sectorSelect = document.getElementById('sector');
-        const localidadSelect = document.getElementById('localidad');
-        const ciudadOptions = Array.from(ciudadSelect.options);
-        const sectorOptions = Array.from(sectorSelect.options);
-        const localidadOptions = Array.from(localidadSelect.options);
 
-        // Ocultar todas las opciones de ciudades, sectores y localidades al cargar la página
-        ciudadOptions.forEach(option => {
-            if (option.value) option.style.display = 'none';
-        });
-        sectorOptions.forEach(option => {
-            if (option.value) option.style.display = 'none';
-        });
-        localidadOptions.forEach(option => {
-            if (option.value) option.style.display = 'none';
-        });
 
-        departamentoSelect.addEventListener('change', () => {
-            const selectedDepartamento = departamentoSelect.value;
+        if (window.innerWidth <= 992) {
+            $('.accordion-collapse').collapse({
+                toggle: true
+            })
+        }
 
-            // Ocultar todas las opciones de ciudades, sectores y localidades
-            ciudadOptions.forEach(option => {
-                if (option.value) option.style.display = 'none';
-            });
-            sectorOptions.forEach(option => {
-                if (option.value) option.style.display = 'none';
-            });
-            localidadOptions.forEach(option => {
-                if (option.value) option.style.display = 'none';
-            });
-
-            // Mostrar solo las opciones de ciudades que corresponden al departamento seleccionado
-            ciudadOptions.forEach(option => {
-                if (option.dataset.departamento === selectedDepartamento) {
-                    option.style.display = 'block';
-                }
-            });
-
-            // Resetear los selects de ciudades, sectores y localidades
-            ciudadSelect.value = "";
-            sectorSelect.value = "";
-            localidadSelect.value = "";
-        });
-
-        ciudadSelect.addEventListener('change', () => {
-            const selectedCiudad = ciudadSelect.value;
-
-            // Ocultar todas las opciones de sectores y localidades
-            sectorOptions.forEach(option => {
-                if (option.value) option.style.display = 'none';
-            });
-            localidadOptions.forEach(option => {
-                if (option.value) option.style.display = 'none';
-            });
-
-            // Mostrar solo las opciones de sectores que corresponden a la ciudad seleccionada
-            sectorOptions.forEach(option => {
-                if (option.dataset.ciudad === selectedCiudad && option.dataset.departamento === departamentoSelect.value) {
-                    option.style.display = 'block';
-                }
-            });
-
-            // Mostrar solo las opciones de localidades que corresponden a la ciudad seleccionada
-            localidadOptions.forEach(option => {
-                if (option.dataset.ciudad === selectedCiudad && option.dataset.departamento === departamentoSelect.value) {
-                    option.style.display = 'block';
-                }
-            });
-
-            // Resetear los selects de sectores y localidades
-            sectorSelect.value = "";
-            localidadSelect.value = "";
-        });
 
 
     });

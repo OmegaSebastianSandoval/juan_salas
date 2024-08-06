@@ -15,6 +15,9 @@
     height: 112px;
   }
 
+
+
+
   header .header-content::before {
     all: unset;
   }
@@ -159,36 +162,72 @@
 }
 
 @media (max-width:991.5px) {
-  .content-mapa ul{
-    display:grid !important;
+
+  header,
+  header .header-content {
+    height: 0;
+  }
+
+  .logo {
+    height: 75px;
+  }
+
+  .main-general {
+    margin-top: 90px;
+  }
+
+  .content-mapa ul {
+    display: grid !important;
     margin-bottom: 20px !important;
     padding-bottom: 5px;
     border-bottom: 1px solid #ccc;
   }
-  .content-mapa a span{
+
+  .content-mapa a span {
     text-align: center;
   }
 
-  .content-mapa li{
+  .content-mapa li {
     margin-bottom: 5px;
   }
-  .content-mapa li:nth-child(2){
+
+  .content-mapa li:nth-child(2) {
     margin-left: 10px;
   }
-  .content-mapa li:nth-child(3){
+
+  .content-mapa li:nth-child(3) {
     margin-left: 20px;
   }
-  .content-mapa li:nth-child(4){
+
+  .content-mapa li:nth-child(4) {
     margin-left: 30px;
   }
-  .content-mapa li:nth-child(5){
+
+  .content-mapa li:nth-child(5) {
     margin-left: 40px;
   }
 
+  .content-resultados {
+    margin-top: 20px;
+  }
+
+
+  .contenedor-servicios .col-sm-4 {
+    width: 100% !important;
+  }
+
+  .card-giratoria {
+    max-width: 420px;
+    margin-bottom: 20px;
+
+  }
+
+
 }
+
 @media (max-width:767px) {
   .main-general {
-    margin-top: 16px;
+    /* margin-top: 16px; */
   }
 
   /* BANNER INCIIO */
@@ -248,41 +287,47 @@
     height: auto;
   }
 
-  .id_33 .design-five{
+  .id_33 .design-five {
     margin-bottom: 15px;
   }
 
-  .content-preguntas .img-preguntas{
+  .content-preguntas .img-preguntas {
     position: relative;
   }
+
   /* -------------------
 BANNER INTERNAS FIN
 -------------------- */
 
 
- /* -------------------
+  /* -------------------
 HOME INICIO
 -------------------- */
 
-.contenido-home .id_26 .design-four {
- margin-bottom: 20px;
-}
+  .contenido-home .id_26 .design-four {
+    margin-bottom: 20px;
+  }
 
-.id_31 h2{
-  font-size: 25px;
-}
+  .id_31 h2 {
+    font-size: 25px;
+  }
 
-.id_31 .descripcion {
- 
-  font-size: 23px;
-}
-.id_31 .btn-vermas{
-  font-size: 15px
-}
- /* -------------------
+  .id_31 .descripcion {
+
+    font-size: 23px;
+  }
+
+  .id_31 .btn-vermas {
+    font-size: 15px
+  }
+
+  /* -------------------
 HOME FIN
 -------------------- */
 
+.contenido-contacto{
+  padding: 10px;
+}
 }
 
 
@@ -316,4 +361,26 @@ BANNER INTERNAS INICIO
   /* -------------------
 BANNER INTERNAS FIN
 -------------------- */
+  .content-resultados .filtros-orden {
+    flex-wrap: wrap;
+  }
+
+
+  .content-resultados .filtros-orden span {
+    flex: 0 0 auto;
+    width: 100%;
+    text-align: center;
+
+  }
+
+  .content-resultados .filtros-orden .form-select {
+    flex: 0 0 auto;
+    width: 45%;
+  }
+
+  .content-resultados .filtros-orden .btn-home {
+    padding: 7px 20px;
+    font-size: 16px;
+
+  }
 }

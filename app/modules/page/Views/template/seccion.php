@@ -41,6 +41,8 @@
 								<?php include(APP_PATH . "modules/page/Views/template/disenio5.php"); ?>
 							<?php } else if ($columna->contenido_disenio == 6) {?>
 								<?php include(APP_PATH . "modules/page/Views/template/disenio6.php"); ?>
+							<?php }  else if ($columna->contenido_disenio == 7) {?>
+								<?php include(APP_PATH . "modules/page/Views/template/cardgiratoria.php"); ?>
 							<?php } ?>
 						<?php } else if ($columna->contenido_tipo == 6) { ?>
 							<?php $carrousel = $rescolumna['hijos']; ?>

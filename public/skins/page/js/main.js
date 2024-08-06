@@ -130,9 +130,8 @@ document.addEventListener("DOMContentLoaded", function () {
     .bindPopup("Bogotá, Colombia")
     .openPopup();
 
-  document
-    .getElementById("formulario-contacto")
-    ?.addEventListener("submit", function (e) {
+  function handleFormSubmit(formId, submitBtnId) {
+    document.getElementById(formId)?.addEventListener("submit", function (e) {
       e.preventDefault();
       var response = grecaptcha.getResponse();
       if (response.length === 0) {
@@ -145,8 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         $(".loader-bx").addClass("show");
 
-        let submitBtn = document.getElementById("submit-btn");
-        // Deshabilitar botón y mostrar animación
+        let submitBtn = document.getElementById(submitBtnId);
         submitBtn.disabled = true;
 
         let formData = new FormData(this);
@@ -154,8 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.forEach((value, key) => {
           data[key] = value;
         });
-
-        // console.log(data);
 
         fetch(this.getAttribute("action"), {
           method: "POST",
@@ -181,12 +177,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 confirmButtonText: "Continuar",
               });
             }
-            document.getElementById("formulario-contacto").reset();
-            // Habilitar botón y ocultar animación
+            document.getElementById(formId).reset();
             submitBtn.disabled = false;
             $(".loader-bx").removeClass("show");
           })
-
           .catch((error) => {
             Swal.fire({
               icon: "error",
@@ -194,12 +188,95 @@ document.addEventListener("DOMContentLoaded", function () {
               confirmButtonColor: "#f87004",
               confirmButtonText: "Continuar",
             });
-            // Habilitar botón y ocultar animación
             submitBtn.disabled = false;
             $(".loader-bx").removeClass("show");
           });
       }
     });
+  }
 
-  
+  handleFormSubmit("formulario-contacto", "submit-btn");
+  handleFormSubmit("formulario-inmueble", "submit-btn");
+
+  const departamentoSelect = document.getElementById("departamento");
+  const ciudadSelect = document.getElementById("ciudad");
+  const sectorSelect = document.getElementById("sector");
+  const localidadSelect = document.getElementById("localidad");
+  const ciudadOptions = Array.from(ciudadSelect.options);
+  const sectorOptions = Array.from(sectorSelect.options);
+  const localidadOptions = Array.from(localidadSelect.options);
+
+  // Ocultar todas las opciones de ciudades, sectores y localidades al cargar la página
+  ciudadOptions.forEach((option) => {
+    if (option.value) option.style.display = "none";
+  });
+  sectorOptions.forEach((option) => {
+    if (option.value) option.style.display = "none";
+  });
+  localidadOptions.forEach((option) => {
+    if (option.value) option.style.display = "none";
+  });
+
+  departamentoSelect.addEventListener("change", () => {
+    const selectedDepartamento = departamentoSelect.value;
+
+    // Ocultar todas las opciones de ciudades, sectores y localidades
+    ciudadOptions.forEach((option) => {
+      if (option.value) option.style.display = "none";
+    });
+    sectorOptions.forEach((option) => {
+      if (option.value) option.style.display = "none";
+    });
+    localidadOptions.forEach((option) => {
+      if (option.value) option.style.display = "none";
+    });
+
+    // Mostrar solo las opciones de ciudades que corresponden al departamento seleccionado
+    ciudadOptions.forEach((option) => {
+      if (option.dataset.departamento === selectedDepartamento) {
+        option.style.display = "block";
+      }
+    });
+
+    // Resetear los selects de ciudades, sectores y localidades
+    ciudadSelect.value = "";
+    sectorSelect.value = "";
+    localidadSelect.value = "";
+  });
+
+  ciudadSelect.addEventListener("change", () => {
+    const selectedCiudad = ciudadSelect.value;
+
+    // Ocultar todas las opciones de sectores y localidades
+    sectorOptions.forEach((option) => {
+      if (option.value) option.style.display = "none";
+    });
+    localidadOptions.forEach((option) => {
+      if (option.value) option.style.display = "none";
+    });
+
+    // Mostrar solo las opciones de sectores que corresponden a la ciudad seleccionada
+    sectorOptions.forEach((option) => {
+      if (
+        option.dataset.ciudad === selectedCiudad &&
+        option.dataset.departamento === departamentoSelect.value
+      ) {
+        option.style.display = "block";
+      }
+    });
+
+    // Mostrar solo las opciones de localidades que corresponden a la ciudad seleccionada
+    localidadOptions.forEach((option) => {
+      if (
+        option.dataset.ciudad === selectedCiudad &&
+        option.dataset.departamento === departamentoSelect.value
+      ) {
+        option.style.display = "block";
+      }
+    });
+
+    // Resetear los selects de sectores y localidades
+    sectorSelect.value = "";
+    localidadSelect.value = "";
+  });
 });

@@ -2,12 +2,18 @@
                                                                                     echo ' border: 2px solid #13436B; border-radius:20px;  overflow: hidden; ';
                                                                                 } ?> background: url(/images/<?php echo $contenido->contenido_fondo_imagen; ?>); <?php echo 'background-color: ' . $contenido->contenido_fondo_color . ' ; '; ?>">
 
-    <?php if ($contenido->contenido_imagen) { ?>
+    <?php if ($contenido->contenido_imagen && file_exists($_SERVER['DOCUMENT_ROOT'] . "/images/" . $contenido->contenido_imagen)) { ?>
         <div class="image">
 
             <img src="/images/<?php echo $contenido->contenido_imagen; ?>">
         </div>
+    <?php } else { ?>
+        <div class="image">
+            <img src="/skins/page/images/Corte/imagenot.jpg" alt="Imagen de  <?= $contenido->contenido_titulo ?>" class="img-inmueble">
+        </div>
+
     <?php } ?>
+
     <div class="content px-2">
         <?php if ($contenido->contenido_titulo_ver == 1) { ?>
 

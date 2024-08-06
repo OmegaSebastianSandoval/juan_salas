@@ -51,7 +51,7 @@
 					<div class="help-block with-errors"></div>
 				</div>
 				<div class="col-4 form-group">
-					<label for="area" class="control-label">&aacute;rea</label>
+					<label for="area" class="control-label">&aacute;rea en m <sup>2</sup></label>
 					<label class="input-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text input-icono  fondo-verde-claro "><i class="fas fa-pencil-alt"></i></span>
@@ -101,7 +101,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text input-icono  fondo-cafe "><i class="far fa-list-alt"></i></span>
 						</div>
-						<select class="form-control" name="sector" required>
+						<select class="form-control" name="sector" >
 							<option value="">Seleccione...</option>
 							<?php foreach ($this->list_sector as $key => $value) { ?>
 								<option <?php if ($this->getObjectVariable($this->content, "sector") == $key) {
@@ -175,7 +175,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text input-icono  "><i class="fa-solid fa-hashtag"></i></span>
 						</div>
-						<input type="number" value="<?= $this->content->banos; ?>" name="banos" id="banos" class="form-control" required>
+						<input type="number" value="<?= $this->content->banos; ?>" name="banos" id="banos" class="form-control" >
 					</label>
 					<div class="help-block with-errors"></div>
 				</div>
